@@ -4,7 +4,7 @@ import { TextField } from "@material-ui/core";
 export function DaySelector() {
   return (
     <>
-      <div className="card-header align-items-center border-0 mt-4">
+      <div className="card-header align-items-center border-0 mt-4 myReport">
         <TextField
           id="DaySchedulePicker"
           label="DAY"

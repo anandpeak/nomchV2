@@ -25,7 +25,7 @@ export default function ScheduleTable() {
   const classes = useStyles();
 
   return (
-    <div className="card card-custom">
+    <div className="card card-body">
       <TableContainer>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>

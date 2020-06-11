@@ -22,7 +22,11 @@
 //@import "./_metronic/_assets/sass/themes/layout/header/menu/light.scss";
 // Dark
 // @import "./_metronic/_assets/sass/themes/layout/header/menu/dark.scss";
-
+@font-face {
+  font-family: 'GothamProMediumCryllic';
+  font-weight: 900;
+  src: local('Lato'), url(./fonts/GothamProMediumCryllic.woff) format('woff');
+}
 // Brand themes
 .brand-dark {
   @import "./_metronic/_assets/sass/themes/layout/brand/dark.scss";
@@ -110,7 +114,7 @@
 }
 
 .scheduleTableHeaderTxt span {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: GothamProMediumCryllic;
   font-size: 10pt;
   font-weight: bold;
 }
@@ -129,6 +133,11 @@
   color: rgba(87, 89, 98, 0.7);
 }
 
+.MuiTableCell-root{border-bottom: 2px dotted #F0F0F0 !important;  } 
 // .nav-link:focus {
 //     outline: none;
 // }
+
+.menu-text{
+  font-family: GothamProMediumCryllic;
+}
