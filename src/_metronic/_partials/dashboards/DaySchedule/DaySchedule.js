@@ -8,7 +8,7 @@ export function DaySchedule() {
     <>
       <div className="row">
         <div className="col-lg-12">
-          <div className="card">
+          <div className="card shadow-sm">
             <DaySelector />
             <ScheduleTable />
           </div>

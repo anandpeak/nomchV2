@@ -14,9 +14,9 @@ function createData(name, calories, fat, carbs, protein) {
 }
 
 const rows = [
-  createData("8:00 8:40", "Хичээл", "Монгол хэл", "Баатарсайхан", "ирсэн1"),
-  createData("8:00 8:40", "Хичээл", "Монгол хэл", "Баатарсайхан", "ирсэн2"),
-  createData("8:00 8:40", "Хичээл", "Монгол хэл", "Баатарсайхан", "ирсэн3"),
+  createData("8:00 8:40", "Хичээл", "Монгол хэл", "Баатарсайхан", 1, 0, 1),
+  createData("8:00 8:40", "Хичээл", "Монгол хэл", "Баатарсайхан", 0, 1, 0),
+  createData("8:00 8:40", "Хичээл", "Монгол хэл", "Баатарсайхан", 1, 0, 0),
 
 ];
 
@@ -32,13 +32,13 @@ export default function ScheduleTable() {
               <TableCell className="scheduleTableHeaderTxt">
                 <span>Цаг</span>
               </TableCell>
-              <TableCell className="scheduleTableHeaderTxt" align="left">
+              <TableCell className="scheduleTableHeaderTxt" align="center">
                 <span>Хичээл</span>
               </TableCell>
-              <TableCell className="scheduleTableHeaderTxt" align="right">
+              <TableCell className="scheduleTableHeaderTxt" align="center">
                 <span>Ирц</span>
               </TableCell>
-              <TableCell className="scheduleTableHeaderTxt" align="right">
+              <TableCell className="scheduleTableHeaderTxt" align="center">
                 <span>Гэрийн даалгавар</span>
               </TableCell>
               <TableCell className="scheduleTableHeaderTxt" align="right">
@@ -55,7 +55,7 @@ export default function ScheduleTable() {
                 <TableCell className="scheduleTableCellTime" component="th" scope="row">
                   <span>{row.name}</span>
                 </TableCell>
-                <TableCell>
+                <TableCell align="center">
                   <div>
                     <img
                       src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTWKfiwjCSvgs5NQUSxpyx7jhxWDl5LrVpQ036rm_0kuIzNNuPc&usqp=CAU"
@@ -72,8 +72,12 @@ export default function ScheduleTable() {
                     </div>
                   </div>
                 </TableCell>
-                <TableCell align="right">{row.calories}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
+                <TableCell align="center">
+                  {row.protein ? <button type="button" class="btn btn-primary"><span>Ирсэн</span></button>
+                    : <button type="button" class="btn btn-danger"><span>Ирээгүй</span></button>
+                  }
+                </TableCell>
+                <TableCell align="center">{row.fat}</TableCell>
                 <TableCell align="right">{row.carbs}</TableCell>
                 <TableCell align="right">{row.protein}</TableCell>
               </TableRow>

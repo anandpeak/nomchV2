@@ -16,7 +16,7 @@ const perfectScrollbarOptions = {
 
 export function UserNotificationsDropdown() {
   const [key, setKey] = useState("Alerts");
-  const bgImage = toAbsoluteUrl("/media/misc/bg-1.jpg");
+  const bgImage = toAbsoluteUrl("/media/General/bg-1.jpg");
 
   const uiService = useHtmlClassService();
   const layoutProps = useMemo(() => {
@@ -36,7 +36,7 @@ export function UserNotificationsDropdown() {
             id="kt_quick_notifications_toggle"
           >
             <span className="svg-icon svg-icon-xl svg-icon-primary">
-              <SVG src={toAbsoluteUrl("/media/svg/icons/Code/Compiling.svg")} />
+              <SVG src={toAbsoluteUrl("/media/svg/icons/General/Notifications1.svg")} />
             </span>
             <span className="pulse-ring"></span>
           </div>
@@ -62,7 +62,7 @@ export function UserNotificationsDropdown() {
               >
                 <span className="svg-icon svg-icon-xl svg-icon-primary">
                   <SVG
-                    src={toAbsoluteUrl("/media/svg/icons/Code/Compiling.svg")}
+                    src={toAbsoluteUrl("/media/svg/icons/General/Notifications1.svg")}
                   />
                 </span>
                 <span className="pulse-ring"></span>
@@ -96,7 +96,7 @@ export function UserNotificationsDropdown() {
                         eventKey="Alerts"
                         className={`nav-link show ${
                           key === "Alerts" ? "active" : ""
-                        }`}
+                          }`}
                       >
                         Alerts
                       </Nav.Link>
@@ -106,7 +106,7 @@ export function UserNotificationsDropdown() {
                         eventKey="Events"
                         className={`nav-link show ${
                           key === "Events" ? "active" : ""
-                        }`}
+                          }`}
                       >
                         Events
                       </Nav.Link>
@@ -116,7 +116,7 @@ export function UserNotificationsDropdown() {
                         eventKey="Logs"
                         className={`nav-link show ${
                           key === "Logs" ? "active" : ""
-                        }`}
+                          }`}
                       >
                         Logs
                       </Nav.Link>

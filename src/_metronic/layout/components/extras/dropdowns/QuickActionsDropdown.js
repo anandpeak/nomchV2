@@ -34,7 +34,7 @@ export function QuickActionsDropdown() {
             >
               <span className="svg-icon svg-icon-xl svg-icon-primary">
                 <SVG
-                  src={toAbsoluteUrl("/media/svg/icons/Media/Equalizer.svg")}
+                  src={toAbsoluteUrl("/media/svg/icons/Communication/Group-chat.svg")}
                 />
               </span>
             </div>
@@ -56,7 +56,7 @@ export function QuickActionsDropdown() {
               <div className="btn btn-icon btn-clean btn-dropdown btn-lg mr-1">
                 <span className="svg-icon svg-icon-xl svg-icon-primary">
                   <SVG
-                    src={toAbsoluteUrl("/media/svg/icons/Media/Equalizer.svg")}
+                    src={toAbsoluteUrl("/media/svg/icons/Communication/Group-chat.svg")}
                   />
                 </span>
               </div>
