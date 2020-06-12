@@ -9,15 +9,14 @@ import TableRow from "@material-ui/core/TableRow";
 
 const useStyles = makeStyles({});
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(name, calories, fat, carbs, protein, assignment, examStat) {
+  return { name, calories, fat, carbs, protein, assignment, examStat };
 }
 
 const rows = [
   createData("8:00 8:40", "Хичээл", "Монгол хэл", "Баатарсайхан", 1, 0, 1),
-  createData("8:00 8:40", "Хичээл", "Монгол хэл", "Баатарсайхан", 0, 1, 0),
-  createData("8:00 8:40", "Хичээл", "Монгол хэл", "Баатарсайхан", 1, 0, 0),
-
+  createData("8:00 8:40", "Хичээл", "Математик", "Баатарсайхан", 0, 1, 0),
+  createData("8:00 8:40", "Хичээл", "Хими", "Баатарсайхан", 1, 0, 0),
 ];
 
 export default function ScheduleTable() {
@@ -41,10 +40,10 @@ export default function ScheduleTable() {
               <TableCell className="scheduleTableHeaderTxt" align="center">
                 <span>Гэрийн даалгавар</span>
               </TableCell>
-              <TableCell className="scheduleTableHeaderTxt" align="right">
+              <TableCell className="scheduleTableHeaderTxt" align="center">
                 <span>Шалгалт</span>
               </TableCell>
-              <TableCell className="scheduleTableHeaderTxt" align="right">
+              <TableCell className="scheduleTableHeaderTxt" align="center">
                 <span>Улирлын дүн</span>
               </TableCell>
             </TableRow>
@@ -52,7 +51,11 @@ export default function ScheduleTable() {
           <TableBody className="scheduleTableBody">
             {rows.map((row) => (
               <TableRow key={row.protein}>
-                <TableCell className="scheduleTableCellTime" component="th" scope="row">
+                <TableCell
+                  className="scheduleTableCellTime"
+                  component="th"
+                  scope="row"
+                >
                   <span>{row.name}</span>
                 </TableCell>
                 <TableCell align="center">
@@ -64,22 +67,56 @@ export default function ScheduleTable() {
                       className="scheduleTableImg"
                     ></img>
                     <div className="scheduleTableImgTxts">
-                      <div className="scheduleTableImgLesson"><span>{row.calories}</span></div>
+                      <div className="scheduleTableImgLesson">
+                        <span>{row.calories}</span>
+                      </div>
                       <div className="scheduleTableImgLessonName">
                         <span>{row.fat}</span>
                       </div>
-                      <div className="scheduleTableImgUserName"><span>{row.carbs}</span></div>
+                      <div className="scheduleTableImgUserName">
+                        <span>{row.carbs}</span>
+                      </div>
                     </div>
                   </div>
                 </TableCell>
                 <TableCell align="center">
-                  {row.protein ? <button type="button" class="btn btn-primary"><span>Ирсэн</span></button>
-                    : <button type="button" class="btn btn-danger"><span>Ирээгүй</span></button>
-                  }
+                  {row.protein ? (
+                    <button type="button" class="btn btn-success">
+                      <span>Ирсэн</span>
+                    </button>
+                  ) : (
+                    <button type="button" class="btn btn-danger">
+                      <span>Ирээгүй</span>
+                    </button>
+                  )}
                 </TableCell>
-                <TableCell align="center">{row.fat}</TableCell>
-                <TableCell align="right">{row.carbs}</TableCell>
-                <TableCell align="right">{row.protein}</TableCell>
+                <TableCell align="center">
+                  {row.assignment ? (
+                    <i
+                      className="fa fa-spell-check fa-3x"
+                      style={{ color: "#1BC5BD" }}
+                    ></i>
+                  ) : (
+                    <i
+                      className="fa fa-spell-check fa-3x"
+                      style={{ color: "#F64E60" }}
+                    ></i>
+                  )}
+                </TableCell>
+                <TableCell align="center">
+                  {row.examStat ? (
+                    <i
+                      className="fa fa-chart-bar fa-3x"
+                      style={{ color: "#1BC5BD" }}
+                    ></i>
+                  ) : (
+                    <i
+                      className="fa fa-chart-bar fa-3x"
+                      style={{ color: "#F64E60" }}
+                    ></i>
+                  )}
+                </TableCell>
+                <TableCell align="center">{row.protein}</TableCell>
               </TableRow>
             ))}
           </TableBody>

@@ -23,12 +23,12 @@ export function Footer() {
         <div className="text-dark order-2 order-md-1">
           <span className="text-muted font-weight-bold mr-2">{today.toString()}</span> &copy;{" "}
           <a
-            href="http://keenthemes.com/metronic"
+            href="https://www.nomch.mn/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-dark-75 text-hover-primary"
           >
-            Keenthemes
+           2020 Nomch IT Consulting LLC
           </a>
         </div>
         <div className="nav nav-dark order-1 order-md-2">
