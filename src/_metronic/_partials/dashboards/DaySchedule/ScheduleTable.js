@@ -14,18 +14,17 @@ function createData(name, calories, fat, carbs, protein) {
 }
 
 const rows = [
-  createData("hicheel", 159, 6.0, 24, 4.0),
-  createData("mathematic", 237, 9.0, 37, 4.3),
-  createData("physics", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
+  createData("8:00 8:40", "Хичээл", "Монгол хэл", "Баатарсайхан", "ирсэн1"),
+  createData("8:00 8:40", "Хичээл", "Монгол хэл", "Баатарсайхан", "ирсэн2"),
+  createData("8:00 8:40", "Хичээл", "Монгол хэл", "Баатарсайхан", "ирсэн3"),
+
 ];
 
 export default function ScheduleTable() {
   const classes = useStyles();
 
   return (
-    <div className="card card-body">
+    <div className="card-body">
       <TableContainer>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
@@ -50,11 +49,11 @@ export default function ScheduleTable() {
               </TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody className="scheduleTableBody">
             {rows.map((row) => (
-              <TableRow key={row.name}>
-                <TableCell component="th" scope="row">
-                  {row.name}
+              <TableRow key={row.protein}>
+                <TableCell className="scheduleTableCellTime" component="th" scope="row">
+                  <span>{row.name}</span>
                 </TableCell>
                 <TableCell>
                   <div>
@@ -65,11 +64,11 @@ export default function ScheduleTable() {
                       className="scheduleTableImg"
                     ></img>
                     <div className="scheduleTableImgTxts">
-                      <div className="scheduleTableImgLesson">{row.name}</div>
+                      <div className="scheduleTableImgLesson"><span>{row.calories}</span></div>
                       <div className="scheduleTableImgLessonName">
-                        {row.name}
+                        <span>{row.fat}</span>
                       </div>
-                      <div className="scheduleTableImgUserName">{row.name}</div>
+                      <div className="scheduleTableImgUserName"><span>{row.carbs}</span></div>
                     </div>
                   </div>
                 </TableCell>

@@ -24,7 +24,7 @@ export function AsideMenuList({ layoutProps }) {
         >
           <NavLink className="menu-link" to="/dashboard">
             <span className="svg-icon menu-icon">
-              <SVG src={toAbsoluteUrl("/media/svg/icons/Design/Layers.svg")} />
+              <SVG src={toAbsoluteUrl("/media/svg/icons/General/Fire.svg")} />
             </span>
             <span className="menu-text">Өнөөдөр</span>
           </NavLink>
@@ -38,7 +38,7 @@ export function AsideMenuList({ layoutProps }) {
         >
           <NavLink className="menu-link" to="/builder">
             <span className="svg-icon menu-icon">
-              <SVG src={toAbsoluteUrl("/media/svg/icons/Home/Library.svg")} />
+              <SVG src={toAbsoluteUrl("/media/svg/icons/General/Notification2.svg")} />
             </span>
             <span className="menu-text">Мэдээллийн самбар</span>
           </NavLink>
@@ -64,7 +64,7 @@ export function AsideMenuList({ layoutProps }) {
         >
           <NavLink className="menu-link menu-toggle" to="/google-material">
             <span className="svg-icon menu-icon">
-              <SVG src={toAbsoluteUrl("/media/svg/icons/Design/Cap-2.svg")} />
+              <SVG src={toAbsoluteUrl("/media/svg/icons/Communication/Clipboard-list.svg")} />
             </span>
             <span className="menu-text">Ирц</span>
             <i className="menu-arrow" />
@@ -961,7 +961,7 @@ export function AsideMenuList({ layoutProps }) {
         >
           <NavLink className="menu-link menu-toggle" to="/react-bootstrap">
             <span className="svg-icon menu-icon">
-              <SVG src={toAbsoluteUrl("/media/svg/icons/Shopping/Box2.svg")} />
+              <SVG src={toAbsoluteUrl("/media/svg/icons/Communication/Clipboard-check.svg")} />
             </span>
             <span className="menu-text">Гэрийн даалгавар</span>
             <i className="menu-arrow" />
@@ -1399,26 +1399,26 @@ export function AsideMenuList({ layoutProps }) {
         </li>
         {/*end::1 Level*/}
         <li
-          className={`menu-item ${getMenuItemActive("/dashboard")}`}
+          className={`menu-item ${getMenuItemActive("/exam")}`}
           aria-haspopup="true"
         >
-          <NavLink className="menu-link" to="/dashboard">
+          <NavLink className="menu-link" to="/exam">
             <span className="svg-icon menu-icon">
-              <SVG src={toAbsoluteUrl("/media/svg/icons/Design/Layers.svg")} />
+              <SVG src={toAbsoluteUrl("/media/svg/icons/Devices/Diagnostics.svg")} />
             </span>
-            <span className="menu-text">Өнөөдөр</span>
+            <span className="menu-text">Шалгалт</span>
           </NavLink>
         </li>
 
         <li
-          className={`menu-item ${getMenuItemActive("/dashboard")}`}
+          className={`menu-item ${getMenuItemActive("/grade")}`}
           aria-haspopup="true"
         >
-          <NavLink className="menu-link" to="/dashboard">
+          <NavLink className="menu-link" to="/grade">
             <span className="svg-icon menu-icon">
-              <SVG src={toAbsoluteUrl("/media/svg/icons/Design/Layers.svg")} />
+              <SVG src={toAbsoluteUrl("/media/svg/icons/Shopping/Chart-line1.svg")} />
             </span>
-            <span className="menu-text">Өнөөдөр</span>
+            <span className="menu-text">Улирлын дүн</span>
           </NavLink>
         </li>
         {/* Applications */}
@@ -1441,31 +1441,31 @@ export function AsideMenuList({ layoutProps }) {
 
           <NavLink className="menu-link menu-toggle" to="/e-commerce">
             <span className="svg-icon menu-icon">
-              <SVG src={toAbsoluteUrl("/media/svg/icons/Shopping/Bag2.svg")} />
+              <SVG src={toAbsoluteUrl("/media/svg/icons/Media/Movie-Lane2.svg")} />
             </span>
             <span className="menu-text">Цахим хичээл</span>
           </NavLink>
         </li>
         <li
-          className={`menu-item ${getMenuItemActive("/dashboard")}`}
+          className={`menu-item ${getMenuItemActive("/archive")}`}
           aria-haspopup="true"
         >
-          <NavLink className="menu-link" to="/dashboard">
+          <NavLink className="menu-link" to="/archive">
             <span className="svg-icon menu-icon">
-              <SVG src={toAbsoluteUrl("/media/svg/icons/Design/Layers.svg")} />
+              <SVG src={toAbsoluteUrl("/media/svg/icons/Communication/Archive.svg")} />
             </span>
-            <span className="menu-text">Өнөөдөр</span>
+            <span className="menu-text">Файлын сан</span>
           </NavLink>
         </li>
         <li
-          className={`menu-item ${getMenuItemActive("/dashboard")}`}
+          className={`menu-item ${getMenuItemActive("/e-test")}`}
           aria-haspopup="true"
         >
-          <NavLink className="menu-link" to="/dashboard">
+          <NavLink className="menu-link" to="/e-test">
             <span className="svg-icon menu-icon">
-              <SVG src={toAbsoluteUrl("/media/svg/icons/Design/Layers.svg")} />
+              <SVG src={toAbsoluteUrl("/media/svg/icons/Design/PenAndRuller.svg")} />
             </span>
-            <span className="menu-text">Өнөөдөр</span>
+            <span className="menu-text">Цахим шалгалт</span>
           </NavLink>
         </li>
         {/*end::1 Level*/}
@@ -1481,45 +1481,45 @@ export function AsideMenuList({ layoutProps }) {
         {/* Error Pages */}
         {/*begin::1 Level*/}
         <li
-          className={`menu-item ${getMenuItemActive("/dashboard")}`}
+          className={`menu-item ${getMenuItemActive("/invoice")}`}
           aria-haspopup="true"
         >
-          <NavLink className="menu-link" to="/dashboard">
+          <NavLink className="menu-link" to="/invoice">
             <span className="svg-icon menu-icon">
-              <SVG src={toAbsoluteUrl("/media/svg/icons/Design/Layers.svg")} />
+              <SVG src={toAbsoluteUrl("/media/svg/icons/Shopping/Money.svg")} />
             </span>
-            <span className="menu-text">Өнөөдөр</span>
+            <span className="menu-text">Төлбөр</span>
           </NavLink>
         </li>
         <li
-          className={`menu-item ${getMenuItemActive("/dashboard")}`}
+          className={`menu-item ${getMenuItemActive("/food")}`}
           aria-haspopup="true"
         >
-          <NavLink className="menu-link" to="/dashboard">
+          <NavLink className="menu-link" to="/food">
             <span className="svg-icon menu-icon">
-              <SVG src={toAbsoluteUrl("/media/svg/icons/Design/Layers.svg")} />
+              <SVG src={toAbsoluteUrl("/media/svg/icons/Cooking/Fork-spoon-knife.svg")} />
             </span>
-            <span className="menu-text">Өнөөдөр</span>
+            <span className="menu-text">Хоол</span>
           </NavLink>
         </li>
         <li
-          className={`menu-item ${getMenuItemActive("/dashboard")}`}
+          className={`menu-item ${getMenuItemActive("/bus")}`}
           aria-haspopup="true"
         >
-          <NavLink className="menu-link" to="/dashboard">
+          <NavLink className="menu-link" to="/bus">
             <span className="svg-icon menu-icon">
-              <SVG src={toAbsoluteUrl("/media/svg/icons/Design/Layers.svg")} />
+              <SVG src={toAbsoluteUrl("/media/svg/icons/Map/Direction2.svg")} />
             </span>
-            <span className="menu-text">Өнөөдөр</span>
+            <span className="menu-text">Автобус</span>
           </NavLink>
         </li>
         <li
-          className={`menu-item ${getMenuItemActive("/dashboard")}`}
+          className={`menu-item ${getMenuItemActive("/research")}`}
           aria-haspopup="true"
         >
-          <NavLink className="menu-link" to="/dashboard">
+          <NavLink className="menu-link" to="/research">
             <span className="svg-icon menu-icon">
-              <SVG src={toAbsoluteUrl("/media/svg/icons/Design/Layers.svg")} />
+              <SVG src={toAbsoluteUrl("/media/svg/icons/Design/PenAndRuller.svg")} />
             </span>
             <span className="menu-text">Судалгаа</span>
           </NavLink>

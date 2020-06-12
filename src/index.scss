@@ -141,3 +141,65 @@
 .menu-text{
   font-family: GothamProMediumCryllic;
 }
+
+Table{
+  span{
+    font-family: GothamProMediumCryllic;
+  }
+}
+
+.scheduleTableCellTime{
+  width: 43pt;
+  height: 36pt;
+
+  span{
+    font-size: 11pt;
+    color:rgba(87, 89, 98, 0.7)
+  }
+}
+
+.myReport{
+  border-bottom: 2px solid #F0F0F0 !important;
+}
+
+.myToday-DayPicker > input{
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+  color: #0275d8;
+}
+
+.myToday-DayPicker > input::placeholder{
+  color: #0275d8;
+}
+
+.myToday-DayPicker > input:hover{
+  cursor: pointer;
+}
+
+.DayPickerInput > div {
+  position: absolute;
+  top: 29px;
+  left: 30;
+  z-index: 1000;
+  background-color: white;
+  -webkit-box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+  -webkit-transition: -webkit-box-shadow .1s ease, -webkit-transform .1s ease;
+  transition: -webkit-box-shadow .1s ease, -webkit-transform .1s ease;
+  transition: box-shadow .1s ease, transform .1s ease;
+  transition: box-shadow .1s ease, transform .1s ease, -webkit-box-shadow .1s ease, -webkit-transform .1s ease;
+}
+
+.content {
+  background-color: rgb(243, 250, 255);
+}
+
+.subheader{
+  background-color: rgb(243, 250, 255) !important;
+  box-shadow: none !important;
+
+}

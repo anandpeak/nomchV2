@@ -1,6 +1,6 @@
 import React from "react";
 
-import { DaySelector } from "./DaySelector";
+import DaySelector from "./DaySelector";
 import ScheduleTable from "./ScheduleTable";
 
 export function DaySchedule() {
@@ -8,7 +8,7 @@ export function DaySchedule() {
     <>
       <div className="row">
         <div className="col-lg-12">
-          <div className="card card-custom">
+          <div className="card">
             <DaySelector />
             <ScheduleTable />
           </div>
