@@ -41,17 +41,34 @@ export default class DaySelector extends React.Component {
 
   componentDidMount() {
     const dateObj = new Date();
+
+    let dayTxt ;
+
+    if(WEEKDAYS_LONG["mn"][dateObj.getDay()] === undefined){
+      dayTxt = 'Ням'
+    }else{
+      dayTxt = WEEKDAYS_LONG["mn"][dateObj.getDay()]
+    }
+
     this.setState({
       datePickerTitle:
-        dateFormat(new Date()) + " " + WEEKDAYS_LONG["mn"][dateObj.getDay()],
+        dateFormat(new Date()) + " " + dayTxt,
       selectedDay: new Date(),
     });
   }
 
   handleDayChange(day) {
     const dateObj = new Date(day);
-    
-    this.setState({ selectedDay: day, datePickerTitle:dateFormat(new Date(day)) + " " + WEEKDAYS_LONG["mn"][dateObj.getDay()] });
+
+    let dayTxt ;
+
+    if(WEEKDAYS_LONG["mn"][dateObj.getDay()] === undefined){
+      dayTxt = 'Ням'
+    }else{
+      dayTxt = WEEKDAYS_LONG["mn"][dateObj.getDay()]
+    }
+
+    this.setState({ selectedDay: day, datePickerTitle:dateFormat(new Date(day)) + " " + dayTxt });
   }
 
   render() {
