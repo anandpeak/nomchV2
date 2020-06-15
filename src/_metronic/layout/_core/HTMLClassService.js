@@ -169,7 +169,7 @@ export class HtmlClassService {
 
     const headerSelfWidth = objectPath.get(this.config, "header.self.width");
     if (headerSelfWidth === "fluid") {
-      objectPath.push(this.classes, "header_container", "container-fluid");
+      objectPath.push(this.classes, "header_container", "container-fluid", "shadow-sm");
     } else {
       objectPath.push(this.classes, "header_container", "container");
     }

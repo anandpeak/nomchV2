@@ -23,9 +23,9 @@
 // Dark
 // @import "./_metronic/_assets/sass/themes/layout/header/menu/dark.scss";
 @font-face {
-  font-family: 'GothamProMediumCryllic';
+  font-family: "GothamProMediumCryllic";
   font-weight: 900;
-  src: local('Lato'), url(./fonts/GothamProMediumCryllic.woff) format('woff');
+  src: local("Lato"), url(./fonts/GothamProMediumCryllic.woff) format("woff");
 }
 // Brand themes
 .brand-dark {
@@ -133,36 +133,38 @@
   color: rgba(87, 89, 98, 0.7);
 }
 
-.MuiTableCell-root{border-bottom: 2px dotted #F0F0F0 !important;  } 
+.MuiTableCell-root {
+  border-bottom: 2px dotted #f0f0f0 !important;
+}
 // .nav-link:focus {
 //     outline: none;
 // }
 
-.menu-text{
+.menu-text {
   font-family: GothamProMediumCryllic;
 }
 
-Table{
-  span{
+table {
+  span {
     font-family: GothamProMediumCryllic;
   }
 }
 
-.scheduleTableCellTime{
+.scheduleTableCellTime {
   width: 43pt;
   height: 36pt;
 
-  span{
+  span {
     font-size: 11pt;
-    color:rgba(87, 89, 98, 0.7)
+    color: rgba(87, 89, 98, 0.7);
   }
 }
 
-.myReport{
-  border-bottom: 2px solid #F0F0F0 !important;
+.myReport {
+  border-bottom: 2px solid #f0f0f0 !important;
 }
 
-.myToday-DayPicker > input{
+.myToday-DayPicker > input {
   border: none;
   font-size: 15px;
   font-weight: bold;
@@ -172,11 +174,11 @@ Table{
   color: #0275d8;
 }
 
-.myToday-DayPicker > input::placeholder{
+.myToday-DayPicker > input::placeholder {
   color: #0275d8;
 }
 
-.myToday-DayPicker > input:hover{
+.myToday-DayPicker > input:hover {
   cursor: pointer;
 }
 
@@ -188,21 +190,39 @@ Table{
   background-color: white;
   -webkit-box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
   box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
-  -webkit-transition: -webkit-box-shadow .1s ease, -webkit-transform .1s ease;
-  transition: -webkit-box-shadow .1s ease, -webkit-transform .1s ease;
-  transition: box-shadow .1s ease, transform .1s ease;
-  transition: box-shadow .1s ease, transform .1s ease, -webkit-box-shadow .1s ease, -webkit-transform .1s ease;
+  -webkit-transition: -webkit-box-shadow 0.1s ease, -webkit-transform 0.1s ease;
+  transition: -webkit-box-shadow 0.1s ease, -webkit-transform 0.1s ease;
+  transition: box-shadow 0.1s ease, transform 0.1s ease;
+  transition: box-shadow 0.1s ease, transform 0.1s ease,
+    -webkit-box-shadow 0.1s ease, -webkit-transform 0.1s ease;
 }
 
 .content {
   background-color: rgb(243, 250, 255);
 }
 
-.subheader{
+.subheader {
   background-color: rgb(243, 250, 255) !important;
   box-shadow: none !important;
 }
 
-.menu-text{
-  font-family: GothamProMediumCryllic; 
+.menu-text {
+  font-family: GothamProMediumCryllic;
+}
+
+span {
+  font-family: GothamProMediumCryllic;
+}
+
+.assignmentDetailBody{
+  display: flex;
+}
+
+.assignmentDetailBodyKeys{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.modal-70w{
+  max-width: 70% !important;
 }
