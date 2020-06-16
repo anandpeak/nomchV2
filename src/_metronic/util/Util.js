@@ -21,7 +21,7 @@ export const hexToRgb = (hex) => {
 
 export const isValidDate = (str) => {
     var m = str.match(/^(\d{4})\-(\d{1,2})\-(\d{1,2})$/);
-    return (m) ? new Date(m[1], m[2] - 1, m[3]) : null;
+    return (m) ? new Date(m[1], m[2]-1, m[3]) : null;
 }
 
 export const priceFormat = (price) => {
@@ -39,6 +39,14 @@ export const numberFormat = (number) => {
         return 0;
     }
 };
+
+export const numberReverseFormat = (str, find, replace) => {
+    return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
+}
+
+function escapeRegExp(string) {
+    return string.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+}
 
 export const floatFormat = (floatNumber, digit = 2) => {
     if (floatNumber) {
@@ -102,7 +110,7 @@ export const queryUrl = (url) => {
                 if (!obj[paramName]) {
                     // if it doesn't exist, create property
                     obj[paramName] = paramValue;
-                } else if (obj[paramName] && typeof obj[paramName] === 'string') {
+                } else if (obj[paramName] && typeof obj[paramName] === 'string'){
                     // if property does exist and it's a string, convert it to an array
                     obj[paramName] = [obj[paramName]];
                     obj[paramName].push(paramValue);

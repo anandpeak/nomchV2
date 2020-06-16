@@ -1,11 +1,96 @@
 import React from "react";
+
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
-// import Datatable from "./Datatable";
+import DataTable from "../../widgets/util/table/DataTable";
 
+const columns = [
+  {
+    key: "id",
+    text: "№",
+    align: "center",
+    width: 50,
+    sortable: false,
+  },
+  {
+    key: "status",
+    text: "Төлөв",
+    sortable: false,
+    align: "center",
+    colType: "html",
+  },
+  {
+    key: "score",
+    text: "Оноо",
+    align: "left",
+    sortable: true,
+  },
+  {
+    key: "checked_date",
+    text: "Шалгасан огноо",
+    align: "left",
+    sortable: true,
+  },
+  {
+    key: "checked_teacher",
+    text: "Шалгасан багш",
+    align: "right",
+    clickableTd: true,
+    tdClassName: "underline",
+    sortable: true,
+  },
+  {
+    key: "description",
+    text: "Тайлбар",
+    sortable: true,
+    align: "left",
+  },
+];
+
+const config = {
+  show_all: true,
+  show_info: false,
+  show_pagination: false,
+  dynamic: false,
+  show_filter: false,
+  sort: {
+    column: "createdDate",
+    order: "DESC",
+  },
+  excelFileName: "Excel",
+};
+
+const records = [
+  {
+    id: 2434,
+    checked_date: "M01",
+    status: "Амгаланбат",
+    score: "Баатар",
+    checked_teacher: "null",
+    description: "null",
+  },
+  {
+    id: 2435,
+    checked_date: "M01",
+    status: "Амгаланбат",
+    score: "Баатар",
+    checked_teacher: "null",
+    description: "null",
+  },
+
+  {
+    id: 2436,
+    checked_date: "M01",
+    status: "Амгаланбат",
+    score: "Баатар",
+    checked_teacher: "null",
+    description: "null",
+  },
+];
 
 export default function AssignmentModal(props) {
+  console.log("asdf = ", config);
   return (
     <>
       <Modal
@@ -56,12 +141,17 @@ export default function AssignmentModal(props) {
                   <span>pdf байх</span>
                 </div>
               </div>
+              <div className="row">
+                <div className="col">
+                  <DataTable
+                    className="table table-bordered"
+                    config={config}
+                    records={records}
+                    columns={columns}
+                  />
+                </div>
+              </div>
             </div>
-            {/* <Datatable
-              className="table table-bordered"
-              config={this.config}
-              columns={this.columns}
-            /> */}
           </div>
         </Modal.Body>
         <Modal.Footer>

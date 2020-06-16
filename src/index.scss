@@ -267,3 +267,107 @@ span {
     color: rgb(88, 103, 221);
   }
 }
+
+th.sortable {
+  color: #575962;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: 95% 50%;
+  background-size: 16px;
+  border: solid 1px #eee !important;
+  font-weight: bold;
+  padding-right: 25px;
+}
+
+th.non-sortable {
+  color: #575962;
+  cursor: pointer;
+  background: none !important;
+  border: solid 1px #eee !important;
+  font-weight: bold;
+}
+
+.as-react-table .input-group-text:empty {
+  display: none;
+}
+
+.asrt-page-length {
+  display: inline-block;
+}
+
+.asrt-page-length .input-group-addon {
+  display: inline-block;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  border: none;
+}
+
+.asrt-pagination {
+  margin: 0;
+}
+
+.react-datatable .table-foot .pagination,
+.react-datatable .table-foot .pagination .la {
+  font-size: 1rem !important;
+  line-height: 1rem !important;
+  font-weight: 400 !important;
+}
+
+.react-datatable tr.selected {
+  background-color: #cde9fd;
+}
+
+.react-datatable td {
+  padding: 0 !important;
+  position: relative;
+}
+
+.react-datatable td img {
+  width: 50px;
+  height: 50px;
+  border: solid 1px #eee;
+}
+
+.react-datatable td img.icon {
+  width: 30px;
+  height: 30px;
+  border: 0;
+}
+
+.react-datatable td img.circle {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.react-datatable td.has-context-menu {
+  padding: 0 !important;
+}
+
+.react-datatable td.has-context-menu .checkbox {
+  margin: 0.75em;
+}
+
+.react-datatable .trigger-inner-container {
+  padding: 0.75rem !important;
+}
+
+.react-datatable .radio.circle-item {
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  font-size: 1em !important;
+  line-height: 32px !important;
+  cursor: pointer;
+  font-family: GothamProCryllic !important;
+  margin-right: 5px;
+  position: relative;
+}
+
+.react-datatable .radio.circle-item label {
+  padding: 0 !important;
+  text-align: center !important;
+  line-height: 30px;
+}

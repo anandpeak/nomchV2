@@ -1,10 +1,7 @@
 import React from "react";
 import DayPickerInput from "react-day-picker/DayPickerInput";
 import "react-day-picker/lib/style.css";
-import {
-  dateFormat,
-} from ".../../../src/_metronic/Util";
-
+import { dateFormat } from "../../../util/Util";
 
 const WEEKDAYS_LONG = {
   mn: {
@@ -35,40 +32,43 @@ export default class DaySelector extends React.Component {
     this.state = {
       selectedDay: undefined,
       datePickerTitle: null,
-
     };
   }
 
   componentDidMount() {
     const dateObj = new Date();
 
-    let dayTxt ;
+    let dayTxt;
 
-    if(WEEKDAYS_LONG["mn"][dateObj.getDay()] === undefined){
-      dayTxt = 'Ням'
-    }else{
-      dayTxt = WEEKDAYS_LONG["mn"][dateObj.getDay()]
+    if (WEEKDAYS_LONG["mn"][dateObj.getDay()] === undefined) {
+      dayTxt = "Ням";
+    } else {
+      dayTxt = WEEKDAYS_LONG["mn"][dateObj.getDay()];
     }
 
     this.setState({
-      datePickerTitle:
-        dateFormat(new Date()) + " " + dayTxt,
+      datePickerTitle: dateFormat(new Date()) + " " + dayTxt,
       selectedDay: new Date(),
     });
   }
 
   handleDayChange(day) {
+    console.log('gg',day)
+
     const dateObj = new Date(day);
 
-    let dayTxt ;
+    let dayTxt;
 
-    if(WEEKDAYS_LONG["mn"][dateObj.getDay()] === undefined){
-      dayTxt = 'Ням'
-    }else{
-      dayTxt = WEEKDAYS_LONG["mn"][dateObj.getDay()]
+    if (WEEKDAYS_LONG["mn"][dateObj.getDay()] === undefined) {
+      dayTxt = "Ням";
+    } else {
+      dayTxt = WEEKDAYS_LONG["mn"][dateObj.getDay()];
     }
 
-    this.setState({ selectedDay: day, datePickerTitle:dateFormat(new Date(day)) + " " + dayTxt });
+    this.setState({
+      selectedDay: day,
+      datePickerTitle: dateFormat(new Date(day)) + " " + dayTxt,
+    });
   }
 
   render() {
@@ -76,7 +76,6 @@ export default class DaySelector extends React.Component {
 
     return (
       <div className="card-header">
-       
         <i
           className="fa fa-angle-left"
           onClick={() => {
@@ -91,11 +90,9 @@ export default class DaySelector extends React.Component {
         {/* </Link> */}
         <DayPickerInput
           onDayChange={this.handleDayChange}
-          
           hideOnDayClick={true}
           inputProps={{ readOnly: true }}
           placeholder={datePickerTitle}
-      
           classNames={{
             container: "DayPickerInput input-pill-container myToday-DayPicker",
             overlay: "DayPickerInput input-pill-container",
