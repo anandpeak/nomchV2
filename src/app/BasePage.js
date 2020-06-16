@@ -6,6 +6,8 @@ import { MyPage } from "./pages/MyPage";
 import { DashboardPage } from "./pages/DashboardPage";
 import AttendanceSeasons from "./pages/attendance/AttendanceSeasons";
 import AttendanceReport from "./pages/attendance/AttendanceReport";
+import HomeworkDashboard from "./pages/homework/HomeworkDashboard.js";
+import HomeworkReport from './pages/homework/HomeworkReport'
 import { Layout } from "../_metronic/layout";
 
 const GoogleMaterialPage = lazy(() =>
@@ -37,7 +39,7 @@ export default function BasePage() {
             <ContentRoute path="/builder" component={BuilderPage} />
             <ContentRoute path="/my-page" component={MyPage} />
             <ContentRoute path="/attendance" component={AttendanceSeasons} />
-
+            <ContentRoute path="/homework" component={HomeworkDashboard} />
 
             <Route path="/google-material" component={GoogleMaterialPage} />
             <Route path="/react-bootstrap" component={ReactBootstrapPage} />
@@ -45,9 +47,9 @@ export default function BasePage() {
             <Redirect to="error/error-v1" />
           </Switch>
         </Layout>
-
       </Suspense>
       <ContentRoute path="/attendance/:id" component={AttendanceReport} />
+      <ContentRoute path="/homework/:id" component={HomeworkReport} />
     </>
   );
 }

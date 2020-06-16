@@ -1,11 +1,11 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
-
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
-export default class AttendanceSeasons extends React.Component {
+import {Link} from 'react-router-dom';
+
+export default class HomeworkDashboard extends React.Component {
   constructor(props) {
     super(props);
 
@@ -47,7 +47,7 @@ export default class AttendanceSeasons extends React.Component {
             <div className="card-body">
               {lessons.map((lesson) => (
                 <div>
-                  <Link target="_blank" to={`/attendance/${lesson}`}>
+                  <Link target="_blank" to={`/homework/${lesson}`}>
                     <span>{lesson}</span>
                   </Link>
                 </div>

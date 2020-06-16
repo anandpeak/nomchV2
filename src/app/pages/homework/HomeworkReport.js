@@ -1,9 +1,9 @@
 import React from "react";
 
-import { AttendanceMixedWidget } from "./AttendanceMixedWidget.js";
-import { AttendanceReportChart } from "./AttendanceReportChart.js";
+import { HomeworkMixedWidget } from "./HomeworkMixedWidget.js";
+import { HomeworkReportChart } from "./HomeworkReportChart.js";
 
-export default class AttendanceReport extends React.Component {
+export default class HomeworkReport extends React.Component {
   constructor(props) {
     super(props);
 
@@ -27,7 +27,7 @@ export default class AttendanceReport extends React.Component {
               <div className="row">
                 <span>{this.state.lessName}</span>
                 <div className="backButtonAttendanceReport">
-                  <a href="/attendance">Буцах</a>
+                  <a href="/homework">Буцах</a>
                 </div>
               </div>
             </div>
@@ -35,7 +35,7 @@ export default class AttendanceReport extends React.Component {
               <div className="row">
                 <div className="col-sm-2 px-md-2">
                   <div className="p-3 shadow h-100">
-                    <AttendanceMixedWidget />
+                    <HomeworkMixedWidget />
                   </div>
                 </div>
                 <div className="col-sm-4 px-md-2">
@@ -44,24 +44,10 @@ export default class AttendanceReport extends React.Component {
                       <div className="col">
                         <div
                           className="attendanceReportTableCell"
-                          style={{ backgroundColor: "rgba(62, 191, 163, 0.8)" }}
+                          style={{ backgroundColor: "rgb(87, 89, 98)" }}
                         >
                           <div className="attendanceReportTableCellLeftSide">
-                            <span>Ирсэн</span>
-                            <span>67%</span>
-                          </div>
-                          <div className="attendanceReportTableCellRighSide">
-                            <span>28</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col">
-                        <div
-                          className="attendanceReportTableCell"
-                          style={{ backgroundColor: "rgb(244, 81, 107)" }}
-                        >
-                          <div className="attendanceReportTableCellLeftSide">
-                            <span>Тасалсан</span>
+                            <span>Хийх</span>
                             <span>67%</span>
                           </div>
                           <div className="attendanceReportTableCellRighSide">
@@ -74,10 +60,10 @@ export default class AttendanceReport extends React.Component {
                       <div className="col">
                         <div
                           className="attendanceReportTableCell"
-                          style={{ backgroundColor: "rgb(113, 106, 202)" }}
+                          style={{ backgroundColor: "rgba(62, 191, 163, 0.8)" }}
                         >
                           <div className="attendanceReportTableCellLeftSide">
-                            <span>Өвчтэй</span>
+                            <span>Бүрэн</span>
                             <span>67%</span>
                           </div>
                           <div className="attendanceReportTableCellRighSide">
@@ -91,7 +77,7 @@ export default class AttendanceReport extends React.Component {
                           style={{ backgroundColor: "rgb(249, 184, 34)" }}
                         >
                           <div className="attendanceReportTableCellLeftSide">
-                            <span>Чөлөөтэй</span>
+                            <span>Дутуу</span>
                             <span>67%</span>
                           </div>
                           <div className="attendanceReportTableCellRighSide">
@@ -104,10 +90,24 @@ export default class AttendanceReport extends React.Component {
                       <div className="col">
                         <div
                           className="attendanceReportTableCell"
+                          style={{ backgroundColor: "rgb(244, 81, 107)" }}
+                        >
+                          <div className="attendanceReportTableCellLeftSide">
+                            <span>Хийгээгүй</span>
+                            <span>67%</span>
+                          </div>
+                          <div className="attendanceReportTableCellRighSide">
+                            <span>28</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col">
+                        <div
+                          className="attendanceReportTableCell"
                           style={{ backgroundColor: "rgb(87, 89, 98)" }}
                         >
                           <div className="attendanceReportTableCellLeftSide">
-                            <span>Хоцорсон</span>
+                            <span>Шалгуулаагүй</span>
                             <span>67%</span>
                           </div>
                           <div className="attendanceReportTableCellRighSide">
@@ -120,7 +120,7 @@ export default class AttendanceReport extends React.Component {
                 </div>
                 <div className="col-sm-6 px-md-2">
                   <div className="p-5 h-100 shadow">
-                    <AttendanceReportChart />
+                    <HomeworkReportChart />
                   </div>
                 </div>
               </div>

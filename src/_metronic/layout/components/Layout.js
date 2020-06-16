@@ -22,7 +22,7 @@ export function Layout({ children }) {
   const layoutProps = useMemo(() => {
     if (
       document.location.pathname.startsWith("/attendance/") ||
-      document.location.pathname.startsWith("/attendance/")
+      document.location.pathname.startsWith("/homework/")
     ) {
       setFullScreen(true);
     }
