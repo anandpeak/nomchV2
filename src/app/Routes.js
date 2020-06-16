@@ -41,9 +41,9 @@ export function Routes() {
                 /*Redirect to `/auth` when user is not authorized*/
                 <Redirect to="/auth/login"/>
             ) : (
-                <Layout>
+                // <Layout>
                     <BasePage/>
-                </Layout>
+                //  {/* </Layout> */}
             )}
         </Switch>
     );

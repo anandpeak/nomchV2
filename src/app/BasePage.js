@@ -5,6 +5,8 @@ import { BuilderPage } from "./pages/BuilderPage";
 import { MyPage } from "./pages/MyPage";
 import { DashboardPage } from "./pages/DashboardPage";
 import AttendanceSeasons from "./pages/attendance/AttendanceSeasons";
+import AttendanceReport from "./pages/attendance/AttendanceReport";
+import { Layout } from "../_metronic/layout";
 
 const GoogleMaterialPage = lazy(() =>
   import("./modules/GoogleMaterialExamples/GoogleMaterialPage")
@@ -23,22 +25,29 @@ export default function BasePage() {
   // https://reactjs.org/docs/hooks-reference.html#useeffect
 
   return (
-    <Suspense fallback={<LayoutSplashScreen />}>
-      <Switch>
-        {
-          /* Redirect from root URL to /dashboard. */
-          <Redirect exact from="/" to="/dashboard" />
-        }
-        <ContentRoute path="/dashboard" component={DashboardPage} />
-        <ContentRoute path="/builder" component={BuilderPage} />
-        <ContentRoute path="/my-page" component={MyPage} />
-        <ContentRoute path="/attendance" component={AttendanceSeasons}/>
-        
-        <Route path="/google-material" component={GoogleMaterialPage} />
-        <Route path="/react-bootstrap" component={ReactBootstrapPage} />
-        <Route path="/e-commerce" component={ECommercePage} />
-        <Redirect to="error/error-v1" />
-      </Switch>
-    </Suspense>
+    <>
+      <Suspense fallback={<LayoutSplashScreen />}>
+        <Layout>
+          <Switch>
+            {
+              /* Redirect from root URL to /dashboard. */
+              <Redirect exact from="/" to="/dashboard" />
+            }
+            <ContentRoute path="/dashboard" component={DashboardPage} />
+            <ContentRoute path="/builder" component={BuilderPage} />
+            <ContentRoute path="/my-page" component={MyPage} />
+            <ContentRoute path="/attendance" component={AttendanceSeasons} />
+
+
+            <Route path="/google-material" component={GoogleMaterialPage} />
+            <Route path="/react-bootstrap" component={ReactBootstrapPage} />
+            <Route path="/e-commerce" component={ECommercePage} />
+            <Redirect to="error/error-v1" />
+          </Switch>
+        </Layout>
+
+      </Suspense>
+      <ContentRoute path="/attendance/:id" component={AttendanceReport} />
+    </>
   );
 }

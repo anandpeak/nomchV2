@@ -2,7 +2,6 @@ import React from "react";
 
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import { Link } from "react-router-dom";
 
 export default class AttendanceSeasons extends React.Component {
   constructor(props) {
@@ -46,9 +45,9 @@ export default class AttendanceSeasons extends React.Component {
             <div className="card-body">
               {lessons.map((lesson) => (
                 <div>
-                  <Link>
+                  <a href={`/attendance/${lesson}`}>
                     <span>{lesson}</span>
-                  </Link>
+                  </a>
                 </div>
               ))}
             </div>

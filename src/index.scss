@@ -214,15 +214,52 @@ span {
   font-family: GothamProMediumCryllic;
 }
 
-.assignmentDetailBody{
+.assignmentDetailBody {
   display: flex;
 }
 
-.assignmentDetailBodyKeys{
+.assignmentDetailBodyKeys {
   display: flex;
   flex-direction: row-reverse;
 }
 
-.modal-70w{
+.modal-70w {
   max-width: 70% !important;
+}
+
+.fullScreenMode {
+  background-color: rgb(243, 250, 255);
+  width: 100%;
+  height: 100%;
+}
+
+.attendanceReportTableCell {
+  span {
+    color: white;
+    font-weight: bold;
+  }
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+}
+
+.attendanceReportTableCellLeftSide {
+  margin-left: 10pt;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  justify-content: center;
+}
+
+.attendanceReportTableCellRighSide {
+  margin-left: auto;
+  margin-right: 10px;
+  font-size: 30px;
+}
+
+.backButtonAttendanceReport {
+  margin-left: auto;
+  a {
+    color: rgb(88, 103, 221);
+  }
 }
