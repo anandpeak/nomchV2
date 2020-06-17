@@ -117,14 +117,57 @@ export function AsideMenuList({ layoutProps }) {
           className={`menu-item ${getMenuItemActive("/grade")}`}
           aria-haspopup="true"
         >
-          <NavLink className="menu-link" to="/grade">
+          <NavLink className="menu-link menu-toggle" to="/grade">
             <span className="svg-icon menu-icon">
               <SVG
                 src={toAbsoluteUrl("/media/svg/icons/Shopping/Chart-line1.svg")}
               />
             </span>
             <span className="menu-text">Улирлын дүн</span>
+            <i className="menu-arrow" />
           </NavLink>
+          <div className="menu-submenu ">
+            <ul className="menu-subnav">
+              <ul className="menu-subnav">
+                <li
+                  className="menu-item  menu-item-parent"
+                  aria-haspopup="true"
+                >
+                  <span className="menu-link">
+                    <span className="menu-text">Bootstrap</span>
+                  </span>
+                </li>
+
+                {/*begin::2 Level*/}
+                <li
+                  className={`menu-item ${getMenuItemActive(
+                    "/react-bootstrap/alert"
+                  )}`}
+                  aria-haspopup="true"
+                >
+                  <NavLink className="menu-link" to="/grade/2019">
+                    <i className="menu-bullet menu-bullet-dot">
+                      <span />
+                    </i>
+                    <span className="menu-text">2019</span>
+                  </NavLink>
+                </li>
+                <li
+                  className={`menu-item ${getMenuItemActive(
+                    "/react-bootstrap/alert"
+                  )}`}
+                  aria-haspopup="true"
+                >
+                  <NavLink className="menu-link" to="/grade/2018">
+                    <i className="menu-bullet menu-bullet-dot">
+                      <span />
+                    </i>
+                    <span className="menu-text">2018</span>
+                  </NavLink>
+                </li>
+              </ul>
+            </ul>
+          </div>
         </li>
         {/* Applications */}
         {/* begin::section */}
