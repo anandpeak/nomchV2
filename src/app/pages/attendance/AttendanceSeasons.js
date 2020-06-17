@@ -1,9 +1,10 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
-
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+
+import DataTable from "../../../_metronic/_partials/";
 
 export default class AttendanceSeasons extends React.Component {
   constructor(props) {

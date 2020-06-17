@@ -94,7 +94,7 @@ export default function AssignmentModal(props) {
   return (
     <>
       <Modal
-        dialogClassName="modal-70w"
+        dialogClassName="modal-80w"
         aria-labelledby="example-custom-modal-styling-title"
         show={props.show}
         onHide={props.assignmentModalClose}

@@ -53,7 +53,7 @@ export default class DaySelector extends React.Component {
   }
 
   handleDayChange(day) {
-    console.log('gg',day)
+    console.log("gg", day);
 
     const dateObj = new Date(day);
 
@@ -87,7 +87,7 @@ export default class DaySelector extends React.Component {
             this.handleDayChange(dateFormat(selectedDate));
           }}
         ></i>
-        {/* </Link> */}
+
         <DayPickerInput
           onDayChange={this.handleDayChange}
           hideOnDayClick={true}
@@ -98,6 +98,7 @@ export default class DaySelector extends React.Component {
             overlay: "DayPickerInput input-pill-container",
           }}
         />
+        
         <i
           className="fa fa-angle-right"
           onClick={() => {
