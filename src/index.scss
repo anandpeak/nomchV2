@@ -159,6 +159,8 @@ table {
   width: 43pt;
   height: 36pt;
 
+  vertical-align: middle !important;
+
   span {
     font-size: 11pt;
     color: rgba(87, 89, 98, 0.7);
@@ -666,4 +668,8 @@ ul.seasonGrade-list-group {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.scheduleTableCell {
+  vertical-align: middle !important;
 }

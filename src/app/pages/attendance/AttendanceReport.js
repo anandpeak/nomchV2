@@ -25,7 +25,9 @@ export default class AttendanceReport extends React.Component {
           <div className="card shadow">
             <div className="card-header">
               <div className="row">
-                <span>{this.state.lessName}</span>
+                <span>
+                  <b>{this.state.lessName}</b>
+                </span>
                 <div className="backButtonAttendanceReport">
                   <a href="/attendance">Буцах</a>
                 </div>

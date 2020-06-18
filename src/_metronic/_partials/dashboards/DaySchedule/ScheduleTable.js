@@ -151,7 +151,7 @@ export default class ScheduleTable extends React.Component {
                     >
                       <span>{row.name}</span>
                     </TableCell>
-                    <TableCell align="center">
+                    <TableCell className="scheduleTableCell" align="center">
                       <div>
                         <img
                           src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTWKfiwjCSvgs5NQUSxpyx7jhxWDl5LrVpQ036rm_0kuIzNNuPc&usqp=CAU"
@@ -172,7 +172,7 @@ export default class ScheduleTable extends React.Component {
                         </div>
                       </div>
                     </TableCell>
-                    <TableCell align="center">
+                    <TableCell className="scheduleTableCell" align="center">
                       {row.attendance ? (
                         <button type="button" class="btn btn-success">
                           <span>Ирсэн</span>
@@ -183,10 +183,10 @@ export default class ScheduleTable extends React.Component {
                         </button>
                       )}
                     </TableCell>
-                    <TableCell align="center">
+                    <TableCell className="scheduleTableCell" align="center">
                       {this.isAssignment(row)}
                     </TableCell>
-                    <TableCell align="center">
+                    <TableCell className="scheduleTableCell" align="center">
                       {row.examStat ? (
                         <i
                           className="fa fa-chart-bar fa-3x"
