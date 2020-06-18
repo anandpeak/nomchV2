@@ -4,7 +4,7 @@ import ApexCharts from "apexcharts";
 import { useHtmlClassService } from "../../../_metronic/layout";
 import { KTUtil } from "../../../_metronic/_assets/js/components/util";
 
-export function SeasonGradeMixedWidget({ className }) {
+export function SeasonGradeModalWidget() {
   const uiService = useHtmlClassService();
 
   const layoutProps = useMemo(() => {
@@ -30,7 +30,7 @@ export function SeasonGradeMixedWidget({ className }) {
   }, [uiService]);
 
   useEffect(() => {
-    const element = document.getElementById("kt_mixed_widget_14_chart");
+    const element = document.getElementById("kt_mixed_widget_seasonGrade_widget");
     if (!element) {
       return;
     }
@@ -48,7 +48,7 @@ export function SeasonGradeMixedWidget({ className }) {
   return (
     <>
       <div className="flex-grow-1">
-        <div id="kt_mixed_widget_14_chart" style={{ height: "140px" }}></div>
+        <div id="kt_mixed_widget_seasonGrade_widget" style={{ height: "140px" }}></div>
       </div>
     </>
   );

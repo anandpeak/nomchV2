@@ -24,8 +24,13 @@
 // @import "./_metronic/_assets/sass/themes/layout/header/menu/dark.scss";
 @font-face {
   font-family: "GothamProMediumCryllic";
-  font-weight: 900;
+  // font-weight: 100;
   src: local("Lato"), url(./fonts/GothamProMediumCryllic.woff) format("woff");
+}
+
+@font-face {
+  font-family: "GothamProCryllic";
+  src: local("Lato"), url(./fonts/GothamProCryllic.woff) format("woff");
 }
 // Brand themes
 .brand-dark {
@@ -211,7 +216,7 @@ table {
 }
 
 span {
-  font-family: GothamProMediumCryllic;
+  font-family: GothamProCryllic;
 }
 
 .assignmentDetailBody {
@@ -221,6 +226,7 @@ span {
 .assignmentDetailBodyKeys {
   display: flex;
   flex-direction: row-reverse;
+  color: rgb(29, 83, 131);
 }
 
 .modal-80w {
@@ -470,7 +476,7 @@ th.non-sortable {
 .rc-tree .rc-tree-treenode span.rc-tree-icon_loading {
   margin-right: 2px;
   vertical-align: top;
-  background:  url(data:image/gif;base64,R0lGODlhEAAQAKIGAMLY8YSx5HOm4Mjc88/g9Ofw+v///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQFCgAGACwAAAAAEAAQAAADMGi6RbUwGjKIXCAA016PgRBElAVlG/RdLOO0X9nK61W39qvqiwz5Ls/rRqrggsdkAgAh+QQFCgAGACwCAAAABwAFAAADD2hqELAmiFBIYY4MAutdCQAh+QQFCgAGACwGAAAABwAFAAADD1hU1kaDOKMYCGAGEeYFCQAh+QQFCgAGACwKAAIABQAHAAADEFhUZjSkKdZqBQG0IELDQAIAIfkEBQoABgAsCgAGAAUABwAAAxBoVlRKgyjmlAIBqCDCzUoCACH5BAUKAAYALAYACgAHAAUAAAMPaGpFtYYMAgJgLogA610JACH5BAUKAAYALAIACgAHAAUAAAMPCAHWFiI4o1ghZZJB5i0JACH5BAUKAAYALAAABgAFAAcAAAMQCAFmIaEp1motpDQySMNFAgA7)
+  background: url(data:image/gif;base64,R0lGODlhEAAQAKIGAMLY8YSx5HOm4Mjc88/g9Ofw+v///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQFCgAGACwAAAAAEAAQAAADMGi6RbUwGjKIXCAA016PgRBElAVlG/RdLOO0X9nK61W39qvqiwz5Ls/rRqrggsdkAgAh+QQFCgAGACwCAAAABwAFAAADD2hqELAmiFBIYY4MAutdCQAh+QQFCgAGACwGAAAABwAFAAADD1hU1kaDOKMYCGAGEeYFCQAh+QQFCgAGACwKAAIABQAHAAADEFhUZjSkKdZqBQG0IELDQAIAIfkEBQoABgAsCgAGAAUABwAAAxBoVlRKgyjmlAIBqCDCzUoCACH5BAUKAAYALAYACgAHAAUAAAMPaGpFtYYMAgJgLogA610JACH5BAUKAAYALAIACgAHAAUAAAMPCAHWFiI4o1ghZZJB5i0JACH5BAUKAAYALAAABgAFAAcAAAMQCAFmIaEp1motpDQySMNFAgA7)
     no-repeat scroll 0 0 transparent;
 }
 
@@ -541,7 +547,7 @@ th.non-sortable {
 
 .rc-tree.rc-tree-show-line .rc-tree-treenode:not(:last-child) > ul {
   background: url("data:image/gif;base64,R0lGODlhCQACAIAAAMzMzP///yH5BAEAAAEALAAAAAAJAAIAAAIEjI9pUAA7")
-  0 0 repeat-y;
+    0 0 repeat-y;
 }
 
 .rc-tree.rc-tree-show-line
@@ -605,4 +611,59 @@ th.non-sortable {
 .rc-tree-indent-unit {
   display: inline-block;
   padding-left: 18px;
+}
+
+.seasonGradeWidgetTxt {
+  .seasonGradeWidgetTxtKey {
+    color: rgb(29, 83, 131);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  .seasonGradeWidgetTxtValue {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+ul.seasonGrade-list-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 1em;
+  grid-auto-flow: column;
+}
+
+.seasonGradeList-group-key {
+  color: rgb(29, 83, 131);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-left: 3px;
+  align-items: center;
+  justify-items: center;
+}
+
+.seasonGradeList-group-value {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.seasonGradeModalGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.seasonGradeModalWidget {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
