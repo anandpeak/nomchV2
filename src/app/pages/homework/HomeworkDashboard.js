@@ -34,7 +34,7 @@ export default class HomeworkDashboard extends React.Component {
       <div className="row">
         <div className="col-lg-12">
           <div className="card shadow-sm">
-            <div className="card-header">
+            <div className="custom-card-body">
               <Tabs
                 value={this.state.tabValue}
                 onChange={this.handleChange}

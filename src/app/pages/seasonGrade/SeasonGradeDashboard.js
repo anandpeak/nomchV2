@@ -254,7 +254,7 @@ export default class SeasonGradeDashboard extends React.Component {
             hideModal={this.hideModal}
             show={this.state.showModal}
           >
-            <div className="row shadow">
+            <div className="row shadow-sm">
               <div className="col-md-2 seasonGradeModalWidget px-md-0">
                 <div className="p-3 h-100">
                   <SeasonGradeModalWidget />
@@ -265,45 +265,76 @@ export default class SeasonGradeDashboard extends React.Component {
                   <div class="col-md-12">
                     <ul class="seasonGrade-list-group">
                       <li class="row">
-                        <span className="col-md seasonGradeList-group-key">Хичээл</span>
-                        <span className="col-md seasonGradeList-group-value">Математик</span>
+                        <span className="col-md seasonGradeList-group-key">
+                          Хичээл
+                        </span>
+                        <span className="col-md seasonGradeList-group-value">
+                          Математик
+                        </span>
                       </li>
                       <li class="row">
-                        <span className="col-md seasonGradeList-group-key">Хичээл</span>
-                        <span className="col-md seasonGradeList-group-value">Математик</span>
+                        <span className="col-md seasonGradeList-group-key">
+                          Хичээл
+                        </span>
+                        <span className="col-md seasonGradeList-group-value">
+                          Математик
+                        </span>
                       </li>
                       <li class="row">
-                        <span className="col-md seasonGradeList-group-key">Хичээл</span>
-                        <span className="col-md seasonGradeList-group-value">Математик</span>
+                        <span className="col-md seasonGradeList-group-key">
+                          Хичээл
+                        </span>
+                        <span className="col-md seasonGradeList-group-value">
+                          Математик
+                        </span>
                       </li>
                       <li class="row">
-                        <span className="col-md seasonGradeList-group-key">Хичээл</span>
-                        <span className="col-md seasonGradeList-group-value">Математик</span>
+                        <span className="col-md seasonGradeList-group-key">
+                          Хичээл
+                        </span>
+                        <span className="col-md seasonGradeList-group-value">
+                          Математик
+                        </span>
                       </li>
                       <li class="row">
-                        <span className="col-md seasonGradeList-group-key">Хичээл</span>
-                        <span className="col-md seasonGradeList-group-value">Математик</span>
+                        <span className="col-md seasonGradeList-group-key">
+                          Хичээл
+                        </span>
+                        <span className="col-md seasonGradeList-group-value">
+                          Математик
+                        </span>
                       </li>
                       <li class="row">
-                        <span className="col-md seasonGradeList-group-key">Хичээл</span>
-                        <span className="col-md seasonGradeList-group-value">Математик</span>
+                        <span className="col-md seasonGradeList-group-key">
+                          Хичээл
+                        </span>
+                        <span className="col-md seasonGradeList-group-value">
+                          Математик
+                        </span>
                       </li>
                       <li class="row">
-                        <span className="col-md seasonGradeList-group-key">Хичээл</span>
-                        <span className="col-md seasonGradeList-group-value">Математик</span>
+                        <span className="col-md seasonGradeList-group-key">
+                          Хичээл
+                        </span>
+                        <span className="col-md seasonGradeList-group-value">
+                          Математик
+                        </span>
                       </li>
                       <li class="row">
-                        <span className="col-md seasonGradeList-group-key">Хичээл</span>
-                        <span className="col-md seasonGradeList-group-value">Математик</span>
+                        <span className="col-md seasonGradeList-group-key">
+                          Хичээл
+                        </span>
+                        <span className="col-md seasonGradeList-group-value">
+                          Математик
+                        </span>
                       </li>
-                    
                     </ul>
                   </div>
                 </div>
               </div>
             </div>
             <div className="row">
-              <div className="col-md-12 p-5 shadow mt-5">
+              <div className="col-md-12 p-5 shadow-sm mt-5">
                 <DataTable
                   className="table table-bordered"
                   config={config}

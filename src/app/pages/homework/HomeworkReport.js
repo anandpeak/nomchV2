@@ -121,13 +121,13 @@ export default class HomeworkReport extends React.Component {
                   </div>
                 </div>
                 <div className="col-sm-6 px-md-2">
-                  <div className="p-5 h-100 shadow">
+                  <div className="p-5 h-100 shadow-sm">
                     <HomeworkReportChart />
                   </div>
                 </div>
               </div>
               <div className="row mt-5">
-                <div className="col shadow">
+                <div className="col shadow-sm">
                   <span>DataTable орж ирэх</span>
                 </div>
               </div>

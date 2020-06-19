@@ -219,15 +219,15 @@ export default class ExamDashboard extends React.Component {
             <div className="card-body">
               <div className="row">
                 <div className="col-md-4 px-md-2">
-                  <div className="p-3 shadow">
+                  <div className="p-3 shadow-sm">
                     <TreeView treeDatas={treeData} />
                   </div>
                 </div>
                 <div className="col-md-8 px-md-2">
-                  <div className="p-3 shadow">
+                  <div className="p-3 shadow-sm">
                     <ExamDashboardMixedChart />
                   </div>
-                  <div className="p-3 mt-3 shadow">
+                  <div className="p-3 mt-3 shadow-sm">
                     <DataTable
                       className="table table-bordered"
                       config={config}
@@ -248,22 +248,22 @@ export default class ExamDashboard extends React.Component {
             >
               <div className="row">
                 <div className="col-md-2 px-md-0">
-                  <div className="p-3 h-100 shadow">
+                  <div className="p-3 h-100 shadow-sm">
                     <ExamModalMixedWidget />
                   </div>
                 </div>
                 <div className="col-md-4 px-md-2">
-                  <div className="p-3 h-100 shadow">Custom column padding</div>
+                  <div className="p-3 h-100 shadow-sm">Custom column padding</div>
                 </div>
                 <div className="col-md-2 px-md-0">
-                  <div className="p-3 h-100 shadow">Custom column padding</div>
+                  <div className="p-3 h-100 shadow-sm">Custom column padding</div>
                 </div>
                 <div className="col-md-4 px-md-2">
-                  <div className="p-3 h-100 shadow">Custom column padding</div>
+                  <div className="p-3 h-100 shadow-sm">Custom column padding</div>
                 </div>
               </div>
               <div className="row">
-                <div className="col-md-12 p-5 shadow mt-5">
+                <div className="col-md-12 p-5 shadow-sm mt-5">
                   <DataTable
                     className="table table-bordered"
                     config={config}
@@ -274,7 +274,7 @@ export default class ExamDashboard extends React.Component {
                 </div>
               </div>
               <div className="row">
-                <div className="col-md-12 p-5 shadow mt-5">
+                <div className="col-md-12 p-5 shadow-sm mt-5">
                   <DataTable
                     className="table table-bordered"
                     config={config}
