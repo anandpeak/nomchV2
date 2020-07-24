@@ -82,7 +82,7 @@ const records = [
   {
     id: 2436,
     checked_date: "M01",
-    status: "Амгаланбат",
+    status: "Амгаланбат1",
     score: "Баатар",
     checked_teacher: "null",
     description: "null",
@@ -91,6 +91,7 @@ const records = [
 
 export default function AssignmentModal(props) {
   console.log("asdf = ", config);
+  
   return (
     <>
       <Modal
