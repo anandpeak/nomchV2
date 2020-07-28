@@ -1,26 +1,16 @@
-import React, { Suspense, lazy } from "react";
-import { Redirect, Switch, Route } from "react-router-dom";
-import { LayoutSplashScreen, ContentRoute } from "../_metronic/layout";
-import { BuilderPage } from "./pages/BuilderPage";
-import { MyPage } from "./pages/MyPage";
-import { DashboardPage } from "./pages/DashboardPage";
-import AttendanceSeasons from "./pages/attendance/AttendanceSeasons";
-import AttendanceReport from "./pages/attendance/AttendanceReport";
-import HomeworkDashboard from "./pages/homework/HomeworkDashboard.js";
-import HomeworkReport from './pages/homework/HomeworkReport'
-import ExamDashboard from './pages/exam/ExamDashboard'
-import SeasonGradeDashBoard from './pages/seasonGrade/SeasonGradeDashboard.js'
-import { Layout } from "../_metronic/layout";
-
-const GoogleMaterialPage = lazy(() =>
-  import("./modules/GoogleMaterialExamples/GoogleMaterialPage")
-);
-const ReactBootstrapPage = lazy(() =>
-  import("./modules/ReactBootstrapExamples/ReactBootstrapPage")
-);
-const ECommercePage = lazy(() =>
-  import("./modules/ECommerce/pages/eCommercePage")
-);
+import React, { Suspense, lazy } from 'react';
+import { Redirect, Switch, Route } from 'react-router-dom';
+import { LayoutSplashScreen, ContentRoute } from '../_metronic/layout';
+import { BuilderPage } from './pages/BuilderPage';
+import { MyPage } from './pages/MyPage';
+import { DashboardPage } from './pages/DashboardPage';
+import AttendanceSeasons from './pages/attendance/AttendanceSeasons';
+import AttendanceReport from './pages/attendance/AttendanceReport';
+import HomeworkDashboard from './pages/homework/HomeworkDashboard.js';
+import HomeworkReport from './pages/homework/HomeworkReport';
+import ExamDashboard from './pages/exam/ExamDashboard';
+import SeasonGradeDashBoard from './pages/seasonGrade/SeasonGradeDashboard.js';
+import { Layout } from '../_metronic/layout';
 
 export default function BasePage() {
   // useEffect(() => {
@@ -45,9 +35,6 @@ export default function BasePage() {
             <ContentRoute path="/exam" component={ExamDashboard} />
             <ContentRoute path="/grade/:id" component={SeasonGradeDashBoard} />
 
-            <Route path="/google-material" component={GoogleMaterialPage} />
-            <Route path="/react-bootstrap" component={ReactBootstrapPage} />
-            <Route path="/e-commerce" component={ECommercePage} />
             <Redirect to="error/error-v1" />
           </Switch>
         </Layout>
