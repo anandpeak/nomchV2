@@ -36,6 +36,9 @@ export function Routes() {
             <Route path="/error" component={ErrorsPage}/>
             <Route path="/logout" component={Logout}/>
 
+{
+    console.log('Is auth', isAuthorized)
+}
 
             {!isAuthorized ? (
                 /*Redirect to `/auth` when user is not authorized*/

@@ -7,7 +7,10 @@ export const REQUEST_PASSWORD_URL = "api/auth/forgot-password";
 export const ME_URL = "api/me";
 
 export function login(email, password) {
-  return axios.post(LOGIN_URL, { email, password });
+  let check = axios.post(LOGIN_URL, { email, password });
+
+  console.log(check)
+  return check;
 }
 
 export function register(email, fullname, username, password) {

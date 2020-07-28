@@ -15,12 +15,10 @@ import { Layout } from "../_metronic/layout";
 const GoogleMaterialPage = lazy(() =>
   import("./modules/GoogleMaterialExamples/GoogleMaterialPage")
 );
-const ReactBootstrapPage = lazy(() =>
-  import("./modules/ReactBootstrapExamples/ReactBootstrapPage")
-);
-const ECommercePage = lazy(() =>
-  import("./modules/ECommerce/pages/eCommercePage")
-);
+
+// const ECommercePage = lazy(() =>
+//   import("./modules/ECommerce/pages/eCommercePage")
+// );
 
 export default function BasePage() {
   // useEffect(() => {
@@ -46,8 +44,7 @@ export default function BasePage() {
             <ContentRoute path="/grade/:id" component={SeasonGradeDashBoard} />
 
             <Route path="/google-material" component={GoogleMaterialPage} />
-            <Route path="/react-bootstrap" component={ReactBootstrapPage} />
-            <Route path="/e-commerce" component={ECommercePage} />
+            {/* <Route path="/e-commerce" component={ECommercePage} /> */}
             <Redirect to="error/error-v1" />
           </Switch>
         </Layout>

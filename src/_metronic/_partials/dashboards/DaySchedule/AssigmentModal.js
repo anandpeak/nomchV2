@@ -90,7 +90,6 @@ const records = [
 ];
 
 export default function AssignmentModal(props) {
-  console.log("asdf = ", config);
   
   return (
     <>

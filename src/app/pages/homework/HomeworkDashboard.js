@@ -9,6 +9,8 @@ export default class HomeworkDashboard extends React.Component {
   constructor(props) {
     super(props);
 
+    console.log('Hw111111aaa ', props )
+
     this.state = {
       tabValue: 0,
     };
