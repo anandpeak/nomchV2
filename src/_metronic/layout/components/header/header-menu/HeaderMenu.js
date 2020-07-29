@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { useLocation } from "react-router";
 import { NavLink } from "react-router-dom";
 import SVG from "react-inlinesvg";
+import * as auth from "../../../../../app/modules/Auth/_redux/authRedux";
 
 import { toAbsoluteUrl, checkIsActive } from "../../../../_helpers";
 
@@ -28,6 +29,8 @@ class HeaderMenu extends React.Component {
 
     changeStudent = (stuId) => {
         console.log('studentId = ', stuId)
+
+        this.props.changeStudent(stuId);
     }
 
     renderStudentsList = () => {
@@ -37,7 +40,7 @@ class HeaderMenu extends React.Component {
 
         students.forEach(stu => {
             stuNames.push(
-                <li className={`menu-item menu-item-rel`} onClick={()=>this.changeStudent(stu.studentId)}>
+                <li className={`menu-item menu-item-rel`} onClick={() => this.changeStudent(stu.studentId)}>
                     <div className="menu-link">
                         <span className="menu-text">{stu.firstName}</span>
                         {this.props.layoutProps.rootArrowEnabled && (<i className="menu-arrow" />)}
@@ -74,4 +77,5 @@ const mapStateProps = (state) => {
     }
 };
 
-export default connect(mapStateProps)(HeaderMenu);
+export default connect(mapStateProps, auth.changeStudentActions)(HeaderMenu);
+

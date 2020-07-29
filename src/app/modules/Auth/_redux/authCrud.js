@@ -6,8 +6,16 @@ export const REQUEST_PASSWORD_URL = "api/auth/forgot-password";
 
 export const ME_URL = "api/me";
 
+export const MAIN_URL = 'http://dev.nomch.mn';
+export const LOGIN_DEV_URL = '/mobile/api/v2/auth/login'
+
+// export function login(email, password) {
+//   return axios.post(LOGIN_URL, { email, password });
+// }
+
+
 export function login(email, password) {
-  return axios.post(LOGIN_URL, { email, password });
+  return axios.post(MAIN_URL+LOGIN_DEV_URL, { email, password });
 }
 
 export function register(email, fullname, username, password) {

@@ -48,6 +48,20 @@ export const reducer = persistReducer(
   }
 );
 
+export const studentReducer = persistReducer(
+  { storage, key: "demo1-changeStudent", whitelist: ["student"] },
+  (state = { student: null }, action) => {
+    switch (action.type) {
+      case 'CHANGE_STUDENTS': {
+        return { student: action.payload };
+      }
+
+      default:
+        return state;
+    }
+  }
+);
+
 export const actions = {
   login: authToken => ({ type: actionTypes.Login, payload: { authToken } }),
   register: authToken => ({
@@ -58,6 +72,10 @@ export const actions = {
   requestUser: user => ({ type: actionTypes.UserRequested, payload: { user } }),
   fulfillUser: user => ({ type: actionTypes.UserLoaded, payload: { user } })
 };
+
+export const changeStudentActions = {
+  changeStudent: student => ({ type: 'CHANGE_STUDENTS', payload: { student } })
+}
 
 export function* saga() {
   yield takeLatest(actionTypes.Login, function* loginSaga() {
@@ -72,5 +90,9 @@ export function* saga() {
     const { data: user } = yield getUserByToken();
 
     yield put(actions.fulfillUser(user));
+  });
+
+  yield takeLatest('CHANGE_STUDENTS', function* changeStudentSaga() {
+    yield put(actions.changeStudent());
   });
 }
