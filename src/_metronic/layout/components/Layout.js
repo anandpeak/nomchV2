@@ -60,7 +60,7 @@ export function Layout({ children }) {
               className="d-flex flex-column flex-row-fluid wrapper"
               id="kt_wrapper"
             >
-              {!fullScreen && <Header />}
+              {!fullScreen && <Header onStudentChange={() => {}}/>}
               {/*begin::Content*/}
               <div
                 id="kt_content"

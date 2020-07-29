@@ -1,4 +1,4 @@
-import {toAbsoluteUrl} from "../../../../_metronic/_helpers";
+import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 
 export default [
   {
@@ -25,7 +25,570 @@ export default [
       facebook: "https://facebook.com/admin",
       twitter: "https://twitter.com/admin",
       instagram: "https://instagram.com/admin"
-    }
+    },
+    "data": {
+      "user": {
+        "userId": 3306,
+        "firstName": "Saruul",
+        "lastName": "S",
+        "avatar": null
+      },
+      "students": [
+        {
+          "studentRelationId": 5458,
+          "studentId": 2411,
+          "studentCode": "SM1801005",
+          "firstName": "Ариунзул",
+          "lastName": "Тэмүүлин",
+          "smallPhoto": "https://www.nomch.mn/media/cache/small_photo/uploads/images/2823122998ff7453344237f964c76b4cbc68caee.jpeg",
+          "classId": 220,
+          "className": "2В",
+          "gradeId": 128,
+          "schoolId": 1,
+          "schoolShortName": "Тестийн сургууль",
+          "seasons": [
+            {
+              "seasonId": 79,
+              "seasonName": "3-р улирал",
+              "isCurrent": true,
+              "parentSeason": 52,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-12-01 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2020-07-03 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              }
+            },
+            {
+              "seasonId": 52,
+              "seasonName": "2019-2020",
+              "isCurrent": false,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-06-30 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2020-07-01 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "parentSeason": 0
+            },
+            {
+              "seasonId": 78,
+              "seasonName": "I хагас",
+              "isCurrent": false,
+              "parentSeason": 52,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-09-01 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2019-12-31 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              }
+            },
+            {
+              "seasonId": 74,
+              "seasonName": "2-р улирал",
+              "isCurrent": false,
+              "parentSeason": 52,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-11-04 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2019-11-30 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              }
+            },
+            {
+              "seasonId": 53,
+              "seasonName": "1-р улирал",
+              "isCurrent": false,
+              "parentSeason": 52,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-09-01 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2019-11-03 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              }
+            }
+          ]
+        },
+        {
+          "studentRelationId": 6218,
+          "studentId": 2434,
+          "studentCode": "M01",
+          "firstName": "Амгаланбат",
+          "lastName": "Баатар",
+          "smallPhoto": "https://www.nomch.mn/media/cache/small_photo/uploads/images/7684d0350186423d846f1854a2192351de3c2fda.png",
+          "classId": 221,
+          "className": "2Б",
+          "gradeId": 128,
+          "schoolId": 1,
+          "schoolShortName": "Тестийн сургууль",
+          "seasons": [
+            {
+              "seasonId": 79,
+              "seasonName": "3-р улирал",
+              "isCurrent": true,
+              "parentSeason": 52,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-12-01 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2020-07-03 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              }
+            },
+            {
+              "seasonId": 52,
+              "seasonName": "2019-2020",
+              "isCurrent": false,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-06-30 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2020-07-01 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "parentSeason": 0
+            },
+            {
+              "seasonId": 78,
+              "seasonName": "I хагас",
+              "isCurrent": false,
+              "parentSeason": 52,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-09-01 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2019-12-31 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              }
+            },
+            {
+              "seasonId": 74,
+              "seasonName": "2-р улирал",
+              "isCurrent": false,
+              "parentSeason": 52,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-11-04 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2019-11-30 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              }
+            },
+            {
+              "seasonId": 53,
+              "seasonName": "1-р улирал",
+              "isCurrent": false,
+              "parentSeason": 52,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-09-01 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2019-11-03 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              }
+            }
+          ]
+        },
+        {
+          "studentRelationId": 5445,
+          "studentId": 2450,
+          "studentCode": "M17",
+          "firstName": "Нандин-Эрдэнэ",
+          "lastName": "Саруул",
+          "smallPhoto": "https://www.nomch.mn/media/cache/small_photo/uploads/images/3c4abe3f8aac10dafa44c634c8d052e6d3b5ac4a.jpeg",
+          "classId": 221,
+          "className": "2Б",
+          "gradeId": 128,
+          "schoolId": 1,
+          "schoolShortName": "Тестийн сургууль",
+          "seasons": [
+            {
+              "seasonId": 79,
+              "seasonName": "3-р улирал",
+              "isCurrent": true,
+              "parentSeason": 52,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-12-01 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2020-07-03 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              }
+            },
+            {
+              "seasonId": 52,
+              "seasonName": "2019-2020",
+              "isCurrent": false,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-06-30 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2020-07-01 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "parentSeason": 0
+            },
+            {
+              "seasonId": 78,
+              "seasonName": "I хагас",
+              "isCurrent": false,
+              "parentSeason": 52,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-09-01 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2019-12-31 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              }
+            },
+            {
+              "seasonId": 74,
+              "seasonName": "2-р улирал",
+              "isCurrent": false,
+              "parentSeason": 52,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-11-04 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2019-11-30 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              }
+            },
+            {
+              "seasonId": 53,
+              "seasonName": "1-р улирал",
+              "isCurrent": false,
+              "parentSeason": 52,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-09-01 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2019-11-03 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              }
+            }
+          ]
+        },
+        {
+          "studentRelationId": 5463,
+          "studentId": 6446,
+          "studentCode": "TS1906017",
+          "firstName": "Баярт",
+          "lastName": "Төгс",
+          "smallPhoto": "https://www.nomch.mn/media/cache/small_photo/uploads/images/49f67d366f480f33cbc02f20dab06d5784199419.png",
+          "classId": 241,
+          "className": "6-2",
+          "gradeId": 132,
+          "schoolId": 1,
+          "schoolShortName": "Тестийн сургууль",
+          "seasons": [
+            {
+              "seasonId": 79,
+              "seasonName": "3-р улирал",
+              "isCurrent": true,
+              "parentSeason": 52,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-12-01 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2020-07-03 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              }
+            },
+            {
+              "seasonId": 52,
+              "seasonName": "2019-2020",
+              "isCurrent": false,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-06-30 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2020-07-01 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "parentSeason": 0
+            },
+            {
+              "seasonId": 78,
+              "seasonName": "I хагас",
+              "isCurrent": false,
+              "parentSeason": 52,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-09-01 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2019-12-31 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              }
+            },
+            {
+              "seasonId": 74,
+              "seasonName": "2-р улирал",
+              "isCurrent": false,
+              "parentSeason": 52,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-11-04 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2019-11-30 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              }
+            },
+            {
+              "seasonId": 53,
+              "seasonName": "1-р улирал",
+              "isCurrent": false,
+              "parentSeason": 52,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-09-01 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2019-11-03 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              }
+            }
+          ]
+        },
+        {
+          "studentRelationId": 5464,
+          "studentId": 6490,
+          "studentCode": "TS2006009",
+          "firstName": "Тэлмэн",
+          "lastName": "Сансар",
+          "smallPhoto": null,
+          "classId": 372,
+          "className": "6-3",
+          "gradeId": 132,
+          "schoolId": 1,
+          "schoolShortName": "Тестийн сургууль",
+          "seasons": [
+            {
+              "seasonId": 79,
+              "seasonName": "3-р улирал",
+              "isCurrent": true,
+              "parentSeason": 52,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-12-01 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2020-07-03 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              }
+            },
+            {
+              "seasonId": 52,
+              "seasonName": "2019-2020",
+              "isCurrent": false,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-06-30 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2020-07-01 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "parentSeason": 0
+            },
+            {
+              "seasonId": 78,
+              "seasonName": "I хагас",
+              "isCurrent": false,
+              "parentSeason": 52,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-09-01 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2019-12-31 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              }
+            },
+            {
+              "seasonId": 74,
+              "seasonName": "2-р улирал",
+              "isCurrent": false,
+              "parentSeason": 52,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-11-04 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2019-11-30 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              }
+            },
+            {
+              "seasonId": 53,
+              "seasonName": "1-р улирал",
+              "isCurrent": false,
+              "parentSeason": 52,
+              "isResult": true,
+              "isExam": true,
+              "isTimetable": true,
+              "startDate": {
+                "date": "2019-09-01 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              },
+              "endDate": {
+                "date": "2019-11-03 00:00:00.000000",
+                "timezone_type": 3,
+                "timezone": "Asia/Ulaanbaatar"
+              }
+            }
+          ]
+        }
+      ],
+      "menus": [],
+      "message": "Амжилттай"
+    },
+    "success": true
   },
   {
     id: 2,

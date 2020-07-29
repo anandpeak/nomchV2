@@ -1,11 +1,12 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-export default class HomeworkDashboard extends React.Component {
+class HomeworkDashboard extends React.Component {
   constructor(props) {
     super(props);
 
@@ -59,3 +60,14 @@ export default class HomeworkDashboard extends React.Component {
     );
   }
 }
+
+const mapStateProps = (state) => {
+
+  console.log('state = ', state)
+
+  return {
+
+  }
+};
+
+export default connect(mapStateProps)(HomeworkDashboard);
