@@ -12,9 +12,9 @@ import ExamDashboard from './pages/exam/ExamDashboard'
 import SeasonGradeDashBoard from './pages/seasonGrade/SeasonGradeDashboard.js'
 import { Layout } from "../_metronic/layout";
 
-const GoogleMaterialPage = lazy(() =>
-  import("./modules/GoogleMaterialExamples/GoogleMaterialPage")
-);
+// const GoogleMaterialPage = lazy(() =>
+//   import("./modules/GoogleMaterialExamples/GoogleMaterialPage")
+// );
 
 // const ECommercePage = lazy(() =>
 //   import("./modules/ECommerce/pages/eCommercePage")
@@ -43,7 +43,7 @@ export default function BasePage() {
             <ContentRoute path="/exam" component={ExamDashboard} />
             <ContentRoute path="/grade/:id" component={SeasonGradeDashBoard} />
 
-            <Route path="/google-material" component={GoogleMaterialPage} />
+            {/* <Route path="/google-material" component={GoogleMaterialPage} /> */}
             {/* <Route path="/e-commerce" component={ECommercePage} /> */}
             <Redirect to="error/error-v1" />
           </Switch>
