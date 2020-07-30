@@ -72,10 +72,10 @@ function Login(props) {
       enableLoading();
       setTimeout(() => {
         login(values.email, values.password)
-          .then((res, { data: { accessToken } }) => {
+          .then(({data}) => {
             disableLoading();
-            console.log('res = ', res)
-            props.login(accessToken);
+            console.log('res = ', data.data.token)
+            props.login(data.data.token);
           })
           .catch((err) => {
             console.log('err1 = ', err)

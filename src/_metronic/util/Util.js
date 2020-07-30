@@ -10,6 +10,17 @@ export const dateFormat = (dateObj) => {
     }
 };
 
+export const timeDateFormat = (date) => {
+    var month = "00" + (date.getMonth() + 1);
+    var day = "00" + date.getDate();
+    var hours = "00" + date.getHours();
+    var minutes = "00" + date.getMinutes();
+    var seconds = "00" + date.getSeconds();
+    var dateValue = date.getFullYear() + '.' + month.slice(-2) + '.' + day.slice(-2) + " " + hours.slice(-2) + ':' + minutes.slice(-2) + ":" + seconds.slice(-2);
+    return dateValue;
+}
+
+
 export const hexToRgb = (hex) => {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? {
@@ -61,6 +72,34 @@ export const floatFormat = (floatNumber, digit = 2) => {
         return 0;
     }
 };
+
+export const isValidURL = (str) => {
+    var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+        '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+        '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+        '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+    return !!pattern.test(str);
+}
+
+export const linkify = (inputText) => {
+    var replacedText, replacePattern1, replacePattern2, replacePattern3;
+
+    //URLs starting with http://, https://, or ftp://
+    replacePattern1 = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
+    replacedText = inputText.replace(replacePattern1, '<a href="$1" target="_blank" style="color: white;">$1</a>');
+
+    //URLs starting with "www." (without // before it, or it'd re-link the ones done above).
+    replacePattern2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
+    replacedText = replacedText.replace(replacePattern2, '$1<a href="http://$2" target="_blank" style="color: white;">$2</a>');
+
+    //Change email addresses to mailto:: links.
+    replacePattern3 = /(([a-zA-Z0-9\-\_\.])+@[a-zA-Z\_]+?(\.[a-zA-Z]{2,6})+)/gim;
+    replacedText = replacedText.replace(replacePattern3, '<a href="mailto:$1" style="color: white;">$1</a>');
+
+    return replacedText;
+}
 
 export const queryUrl = (url) => {
     var queryString = url ? url.split('?')[1] : window.location.search.slice(1);

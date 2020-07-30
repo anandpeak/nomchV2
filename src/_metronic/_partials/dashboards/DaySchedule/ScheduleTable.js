@@ -66,7 +66,7 @@ export default class ScheduleTable extends React.Component {
         <button
           onClick={() => this.renderModal(obj.lessonName)}
           type="button"
-          class="btn btn-success"
+          className="btn btn-success"
         >
           <span> Бүрэн</span>
         </button>
@@ -76,7 +76,7 @@ export default class ScheduleTable extends React.Component {
         <button
           type="button"
           onClick={() => this.renderModal(obj.lessonName)}
-          class="btn btn-warning"
+          className="btn btn-warning"
         >
           <span>Дутуу</span>
         </button>
@@ -86,7 +86,7 @@ export default class ScheduleTable extends React.Component {
         <button
           type="button"
           onClick={() => this.renderModal(obj.lessonName)}
-          class="btn btn-danger"
+          className="btn btn-danger"
         >
           <span> Хийгээгүй</span>
         </button>
@@ -96,7 +96,7 @@ export default class ScheduleTable extends React.Component {
         <button
           type="button"
           onClick={() => this.renderModal(obj.lessonName)}
-          class="btn btn-secondary"
+          className="btn btn-secondary"
         >
           <span>Шалгаагүй</span>
         </button>
@@ -106,7 +106,7 @@ export default class ScheduleTable extends React.Component {
         <button
           type="button"
           onClick={() => this.renderModal(obj.lessonName)}
-          class="btn btn-warning"
+          className="btn btn-warning"
         >
           <span>Хийх</span>
         </button>
@@ -143,7 +143,7 @@ export default class ScheduleTable extends React.Component {
               </TableHead>
               <TableBody className="scheduleTableBody">
                 {rows.map((row) => (
-                  <TableRow key={row.attendance}>
+                  <TableRow key={(row.attendance+Math.random).toString()}>
                     <TableCell
                       className="scheduleTableCellTime"
                       component="th"
@@ -174,11 +174,11 @@ export default class ScheduleTable extends React.Component {
                     </TableCell>
                     <TableCell className="scheduleTableCell" align="center">
                       {row.attendance ? (
-                        <button type="button" class="btn btn-success">
+                        <button type="button" className="btn btn-success">
                           <span>Ирсэн</span>
                         </button>
                       ) : (
-                        <button type="button" class="btn btn-danger">
+                        <button type="button" className="btn btn-danger">
                           <span>Тасалсан</span>
                         </button>
                       )}

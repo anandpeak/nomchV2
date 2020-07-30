@@ -12,12 +12,11 @@ import ExamDashboard from './pages/exam/ExamDashboard';
 import SeasonGradeDashBoard from './pages/seasonGrade/SeasonGradeDashboard.js';
 import { Layout } from '../_metronic/layout';
 
-export default function BasePage() {
+export default function BasePage(props) {
   // useEffect(() => {
   //   console.log('Base page');
   // }, []) // [] - is required if you need only one call
   // https://reactjs.org/docs/hooks-reference.html#useeffect
-
   return (
     <>
       <Suspense fallback={<LayoutSplashScreen />}>
@@ -44,3 +43,4 @@ export default function BasePage() {
     </>
   );
 }
+

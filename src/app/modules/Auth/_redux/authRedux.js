@@ -53,7 +53,24 @@ export const studentReducer = persistReducer(
   (state = { student: null }, action) => {
     switch (action.type) {
       case 'CHANGE_STUDENTS': {
-        return { student: action.payload };
+
+        return { student: action.payload.student };
+      }
+
+      default:
+        return state;
+    }
+  }
+);
+
+export const initDataReducer = persistReducer(
+  { storage, key: "initData", whitelist: ["initdata"] },
+  (state = { initData: [] }, action) => {
+    switch (action.type) {
+      case 'INIT_DATA': {
+        return {
+          initData: action.payload.initData
+        };
       }
 
       default:
@@ -74,8 +91,11 @@ export const actions = {
 };
 
 export const changeStudentActions = {
-  changeStudent: student => ({ type: 'CHANGE_STUDENTS', payload: { student } })
+  changeStudent: student => ({ type: 'CHANGE_STUDENTS', payload: { student } }),
+  initData: (initData) => ({ type: 'INIT_DATA', payload: { initData } })
+
 }
+
 
 export function* saga() {
   yield takeLatest(actionTypes.Login, function* loginSaga() {
@@ -92,7 +112,13 @@ export function* saga() {
     yield put(actions.fulfillUser(user));
   });
 
-  yield takeLatest('CHANGE_STUDENTS', function* changeStudentSaga() {
-    yield put(actions.changeStudent());
-  });
+  // yield takeLatest('CHANGE_STUDENTS', function* changeStudentSaga() {
+
+  //   // yield initAction.initData();
+  //   yield put(actions.changeStudent());
+  // });
+
+  // yield takeLatest('INIT_DATA', function* initDataSaga() {
+  //   yield put(actions.initData());
+  // });
 }

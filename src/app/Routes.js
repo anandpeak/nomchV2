@@ -13,13 +13,16 @@ import BasePage from './BasePage';
 import { Logout, AuthPage } from './modules/Auth';
 import ErrorsPage from './modules/ErrorsExamples/ErrorsPage';
 
-export function Routes() {
-  const { isAuthorized } = useSelector(
+
+ export function Routes() {
+  let { isAuthorized } = useSelector(
     ({ auth }) => ({
       isAuthorized: auth.user != null,
     }),
     shallowEqual
   );
+
+  isAuthorized = true;
 
   return (
     <Switch>
@@ -29,9 +32,9 @@ export function Routes() {
           <AuthPage />
         </Route>
       ) : (
-        /*Otherwise redirect to root page (`/`)*/
-        <Redirect from="/auth" to="/" />
-      )}
+          /*Otherwise redirect to root page (`/`)*/
+          <Redirect from="/auth" to="/" />
+        )}
 
       <Route path="/error" component={ErrorsPage} />
       <Route path="/logout" component={Logout} />
@@ -40,10 +43,11 @@ export function Routes() {
         /*Redirect to `/auth` when user is not authorized*/
         <Redirect to="/auth/login" />
       ) : (
-        // <Layout>
-        <BasePage />
-        //  {/* </Layout> */}
-      )}
+          // <Layout>
+          <BasePage />
+          //  {/* </Layout> */}
+        )}
     </Switch>
   );
 }
+

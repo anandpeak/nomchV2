@@ -261,10 +261,10 @@ export default class SeasonGradeDashboard extends React.Component {
                 </div>
               </div>
               <div className="col-md-7 seasonGradeModalGroup px-md-2">
-                <div class="row">
-                  <div class="col-md-12">
-                    <ul class="seasonGrade-list-group">
-                      <li class="row">
+                <div className="row">
+                  <div className="col-md-12">
+                    <ul className="seasonGrade-list-group">
+                      <li className="row">
                         <span className="col-md seasonGradeList-group-key">
                           Хичээл
                         </span>
@@ -272,7 +272,7 @@ export default class SeasonGradeDashboard extends React.Component {
                           Математик
                         </span>
                       </li>
-                      <li class="row">
+                      <li className="row">
                         <span className="col-md seasonGradeList-group-key">
                           Хичээл
                         </span>
@@ -280,7 +280,7 @@ export default class SeasonGradeDashboard extends React.Component {
                           Математик
                         </span>
                       </li>
-                      <li class="row">
+                      <li className="row">
                         <span className="col-md seasonGradeList-group-key">
                           Хичээл
                         </span>
@@ -288,7 +288,7 @@ export default class SeasonGradeDashboard extends React.Component {
                           Математик
                         </span>
                       </li>
-                      <li class="row">
+                      <li className="row">
                         <span className="col-md seasonGradeList-group-key">
                           Хичээл
                         </span>
@@ -296,7 +296,7 @@ export default class SeasonGradeDashboard extends React.Component {
                           Математик
                         </span>
                       </li>
-                      <li class="row">
+                      <li className="row">
                         <span className="col-md seasonGradeList-group-key">
                           Хичээл
                         </span>
@@ -304,7 +304,7 @@ export default class SeasonGradeDashboard extends React.Component {
                           Математик
                         </span>
                       </li>
-                      <li class="row">
+                      <li className="row">
                         <span className="col-md seasonGradeList-group-key">
                           Хичээл
                         </span>
@@ -312,7 +312,7 @@ export default class SeasonGradeDashboard extends React.Component {
                           Математик
                         </span>
                       </li>
-                      <li class="row">
+                      <li className="row">
                         <span className="col-md seasonGradeList-group-key">
                           Хичээл
                         </span>
@@ -320,7 +320,7 @@ export default class SeasonGradeDashboard extends React.Component {
                           Математик
                         </span>
                       </li>
-                      <li class="row">
+                      <li className="row">
                         <span className="col-md seasonGradeList-group-key">
                           Хичээл
                         </span>

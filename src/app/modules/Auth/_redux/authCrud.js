@@ -7,10 +7,11 @@ export const REQUEST_PASSWORD_URL = "api/auth/forgot-password";
 
 export const ME_URL = "api/me";
 
-export const MAIN_URL = 'http://dev.nomch.mn';
-export const LOGIN_DEV_URL = '/mobile/api/v2/auth/login'
+export const MAIN_URL = 'http://dev.nomch.mn/mobile/api/v2';
+export const LOGIN_DEV_URL = '/auth/login'
 export const CORS_URL = 'https://cors-anywhere.herokuapp.com/'
 export const LOCAL_URL = 'http://localhost:8000'
+export const INIT_URL = '/init'
 // export function login(email, password) {
 //   return axios.post(LOGIN_URL, { email, password });
 // }
@@ -21,6 +22,7 @@ const config = {
   headers: {
     'Access-Control-Allow-Origin': '*',
     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8;',
+    'Access-Control-Allow-Headers': 'Content-Type'
     // 'Authorization': token ? 'Bearer ' + token : ''
   }
 };
@@ -49,5 +51,5 @@ export function requestPassword(email) {
 
 export function getUserByToken() {
   // Authorization head should be fulfilled in interceptor.
-  return axios.get(ME_URL);
+  return axios.get(MAIN_URL + INIT_URL);
 }

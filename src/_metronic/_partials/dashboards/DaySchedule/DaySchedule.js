@@ -3,7 +3,9 @@ import React from "react";
 import DaySelector from "./DaySelector";
 import ScheduleTable from "./ScheduleTable";
 
-export function DaySchedule() {
+
+
+export default function DaySchedule(props) {
   return (
     <>
       <div className="row">
@@ -17,3 +19,4 @@ export function DaySchedule() {
     </>
   );
 }
+

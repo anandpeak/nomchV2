@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import objectPath from "object-path";
 import { useHtmlClassService } from "../../layout";
-import { DaySchedule } from "./DaySchedule/DaySchedule.js";
+import DaySchedule  from "./DaySchedule/DaySchedule.js";
 import { Demo2Dashboard } from "./Demo2Dashboard";
 import { Demo3Dashboard } from "./Demo3Dashboard";
 import { Demo4Dashboard } from "./Demo4Dashboard";

@@ -62,9 +62,6 @@ class HomeworkDashboard extends React.Component {
 }
 
 const mapStateProps = (state) => {
-
-  console.log('state = ', state)
-
   return {
 
   }

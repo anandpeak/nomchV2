@@ -3,12 +3,13 @@ import React, {Component, Fragment} from 'react';
 import _ from 'lodash';
 import {ContextMenu, ContextMenuTrigger, MenuItem} from "react-contextmenu";
 import {Checkbox, Dropdown, Form, Portal, Radio, Segment, Input} from 'semantic-ui-react'
+import MathJax from 'react-mathjax-preview'
 import InlineEdit from '../inline_edit/InlineEdit'
-import $ from 'jquery';
 
 import * as FileSaver from 'file-saver';
 import * as XLSX from 'xlsx';
 import {translations} from '../../../../util/translations'
+import $ from 'jquery';
 
 import upArrow from './up_sort.png';
 import downArrow from './down_sort.png';
@@ -35,14 +36,15 @@ let style = {
         display: 'inline-block',
         verticalAlign: 'top',
         marginRight: '5px',
-        width: '250px'
+        width: '220px'
     },
     table_tool: {
         display: 'inline-block',
         verticalAlign: 'top'
     },
     table_tool_btn: {
-        marginRight: '5px'
+        marginRight: '5px',
+        marginTop: '3px'
     },
     sort_asc: {
         backgroundImage: `url(${upArrow})`
@@ -73,6 +75,7 @@ class DataTable extends Component {
             },
             columnPopupShow: false,
             columnPopupPosition: null,
+            columns: props.columns,
             filterColumns: props.columns
         }
 
@@ -128,10 +131,17 @@ class DataTable extends Component {
     componentDidUpdate() {
         if (this.state.locale !== this.props.locale) {
             this.setState({
-                locale: this.state.locale
-            })
+                locale: this.props.locale
+            });
 
             this.updateConfigText()
+        }
+
+        if (this.state.columns !== this.props.columns) {
+            this.setState({
+                filterColumns: this.props.columns,
+                columns: this.props.columns
+            })
         }
     }
 
@@ -145,9 +155,15 @@ class DataTable extends Component {
 
         if (this.state.sort && !this.props.hasCustomSort) {
             if (this.state.sort.order === 'asc') {
-                filterRecords.sort((a, b) => collator.compare(a[this.state.sort.column], b[this.state.sort.column]));
+                filterRecords.sort((a, b) => collator.compare(a[this.state.sort.column], b[this.state.sort.column]))
+                if (this.state.sort.multi) {
+                    filterRecords.sort((a, b) => collator.compare(a[this.state.sort.multi], b[this.state.sort.multi]));
+                }
             } else {
                 filterRecords.sort((b, a) => collator.compare(a[this.state.sort.column], b[this.state.sort.column]));
+                if (this.state.sort.multi) {
+                    filterRecords.sort((b, a) => collator.compare(a[this.state.sort.multi], b[this.state.sort.multi]));
+                }
             }
         }
 
@@ -165,12 +181,17 @@ class DataTable extends Component {
 
         isFirst = this.isFirst();
         isLast = this.isLast();
-        filterRecords = this.paginate(filterRecords);
 
         let startRecords = (this.state.page_number * this.state.page_size) - (this.state.page_size - 1);
         let endRecords = this.state.page_size * this.state.page_number;
-        endRecords = (endRecords > totalRecords) ? totalRecords : endRecords;
 
+
+        if (!this.config.show_all) {
+            filterRecords = this.paginate(filterRecords);
+            endRecords = (endRecords > totalRecords) ? totalRecords : endRecords;
+        } else {
+            endRecords = totalRecords;
+        }
 
         let lengthMenuText = this.config && this.config.language ? this.config.language.length_menu : '';
         lengthMenuText = lengthMenuText.split('_MENU_');
@@ -197,7 +218,7 @@ class DataTable extends Component {
 
                 <div className="row table-head asrt-table-head"
                      id={(this.props.id) ? this.props.id + "-table-head" : ""}>
-                    <div className="col-md-6">
+                    <div className="col-md-5 pl-0 pr-0">
                         {(this.props.config.add_button_left)
                             ? (
                                 this.props.config.text_or_button === 'button'
@@ -241,16 +262,7 @@ class DataTable extends Component {
                             </div>
                         ) : null}
                     </div>
-                    <div className="col-md-6 float-right text-right">
-                        {
-                            this.config.show_filter && <div className="table_filter" style={style.table_filter}>
-                                <input
-                                    type="search"
-                                    className="form-control m-input--pill"
-                                    placeholder={this.config.language.filter}
-                                    onChange={this.searchRecords}/>
-                            </div>
-                        }
+                    <div className="col-md-7 float-right text-right pl-0 pr-0">
                         <div className="table_tools" style={style.table_tool}>
                             {
                                 this.config.button.filterColumns &&
@@ -258,10 +270,11 @@ class DataTable extends Component {
                                     closeOnTriggerClick
                                     openOnTriggerClick
                                     trigger={
-                                        <button className="btn btn-primary"
+                                        <button className="btn btn-primary datatable-tools-buttons"
                                                 style={style.table_tool_btn}
                                         >
-                                            <span><i className="la la-columns" aria-hidden="true"></i></span>
+                                            <span><i className="la la-columns datatable-tools-icons"
+                                                     aria-hidden="true"></i></span>
                                         </button>
                                     }
                                     onOpen={(e) => {
@@ -295,7 +308,10 @@ class DataTable extends Component {
                                                             return (
                                                                 <div className={""}
                                                                      key={'filter_col_' + column.key}>
-                                                                    <Checkbox label={column.text} checked={!column.hide} disabled={that.props.staticFirstRow && i === 0} className={"col-12"} onChange={(el, data) => that.toggleColumn(el, data, column)}/>
+                                                                    <Checkbox label={column.text} checked={!column.hide}
+                                                                              disabled={that.props.staticFirstRow && i === 0}
+                                                                              className={"col-12"}
+                                                                              onChange={(el, data) => that.toggleColumn(el, data, column)}/>
                                                                 </div>
                                                             )
                                                         })
@@ -307,30 +323,43 @@ class DataTable extends Component {
                                 </Portal>
                             }
                             {
-                                this.config.button.excel && <button className="btn btn-primary buttons-excel"
-                                                                    tabIndex="0"
-                                                                    aria-controls="configuration_tbl"
-                                                                    title="Export to Excel"
-                                                                    style={style.table_tool_btn}
-                                                                    onClick={() => {
-                                                                        this.props.onExcelExport
-                                                                            ?
-                                                                            this.props.onExcelExport(this.state.filterColumns, this.state.filter_value)
-                                                                            :
-                                                                            this.exportToExcel()
-                                                                    }}>
-                                    <span><i className="la la-file-excel-o" aria-hidden="true"></i></span>
+                                this.config.button.excel &&
+                                <button className="btn btn-primary buttons-excel datatable-tools-buttons"
+                                        tabIndex="0"
+                                        aria-controls="configuration_tbl"
+                                        title="Export to Excel"
+                                        style={style.table_tool_btn}
+                                        onClick={() => {
+                                            this.props.onExcelExport
+                                                ?
+                                                this.props.onExcelExport(this.state.filterColumns, this.state.filter_value)
+                                                :
+                                                this.exportToExcel()
+                                        }}>
+                                    <span><i className="la la-file-excel-o datatable-tools-icons"
+                                             aria-hidden="true"></i></span>
                                 </button>
                             }
                             {
-                                this.config.button.print && <button className="btn btn-primary buttons-csv"
-                                                                    tabIndex="0"
-                                                                    aria-controls="configuration_tbl"
-                                                                    title="Export to PDF"
-                                                                    style={style.table_tool_btn}
-                                                                    onClick={this.exportToPDF}>
-                                    <span><i className="la la-file-text-o" aria-hidden="true"></i></span>
+                                this.config.button.print &&
+                                <button className="btn btn-primary buttons-csv datatable-tools-buttons"
+                                        tabIndex="0"
+                                        aria-controls="configuration_tbl"
+                                        title="Export to PDF"
+                                        style={style.table_tool_btn}
+                                        onClick={this.exportToPDF}>
+                                    <span><i className="la la-print datatable-tools-icons"
+                                             aria-hidden="true"></i></span>
                                 </button>
+                            }
+                            {
+                                this.config.show_filter && <div className="table_filter" style={style.table_filter}>
+                                    <input
+                                        type="search"
+                                        className="form-control m-input--pill"
+                                        placeholder={this.config.language.filter}
+                                        onChange={this.searchRecords}/>
+                                </div>
                             }
                         </div>
                     </div>
@@ -410,6 +439,7 @@ class DataTable extends Component {
                                     let contextMenuId = record.contextMenuId;
                                     let contextMenus = that.props.contextMenus;
 
+
                                     if (contextMenuId && contextMenuId in contextMenus) {
                                         contextMenus = contextMenus[contextMenuId];
                                     }
@@ -449,30 +479,43 @@ class DataTable extends Component {
                                 )}
                                 </tbody>
                                 {
-                                    this.config.show_footer && nonFilterAllRecords.length > 0 && <tfoot className={"table-foot"}>
+                                    this.config.show_footer && nonFilterAllRecords.length > 0 &&
+                                    <tfoot className={"table-foot"}>
                                     <tr>
                                         {
                                             columnList.map((column, colIndex) => {
                                                 if (column.footerSum) {
-
                                                     let total = null;
+                                                    let align = (column.align) ? column.align : "";
+                                                    let classText = "";
+                                                    classText += " text-" + align;
+
                                                     try {
                                                         total = 0;
                                                         for (let f = 0; f < nonFilterAllRecords.length; f++) {
                                                             let filterRecord = nonFilterAllRecords[f];
-                                                            if (filterRecord[column.key].includes(',')) {
-                                                                total = total + Number.parseInt(numberReverseFormat(filterRecord[column.key], ',', ''));
-                                                            } else {
-                                                                total = total + Number.parseInt(filterRecord[column.key]);
+
+                                                            if (filterRecord[column.key]) {
+                                                                if (typeof (filterRecord[column.key]) === 'string' && filterRecord[column.key].includes(',')) {
+                                                                    total = total + Number.parseInt(numberReverseFormat(filterRecord[column.key], ',', ''));
+                                                                }
+                                                                else if (typeof (filterRecord[column.key]) === 'string' && filterRecord[column.key].includes("'")) {
+                                                                    total = total + Number.parseInt(numberReverseFormat(filterRecord[column.key], "'", ''));
+                                                                }
+                                                                else if (typeof (filterRecord[column.key]) === 'number') {
+                                                                    total = total + Number.parseInt(filterRecord[column.key]);
+                                                                }
                                                             }
                                                         }
                                                     } catch (e) {
+                                                        console.log('e', e)
                                                         total = null
                                                     }
 
-                                                    return <td key={'footer_' + column.key}>
-                                                        <div
-                                                            className={"trigger-inner-container"}><b>{priceFormat(total)}</b></div>
+                                                    return <td key={'footer_' + column.key}
+                                                               className={classText ? classText : ""}>
+                                                        <div className={"trigger-inner-container"}>
+                                                            <b>{priceFormat(total)}</b></div>
                                                     </td>
                                                 } else {
                                                     return <td key={'footer_' + column.key}>
@@ -541,10 +584,15 @@ class DataTable extends Component {
         )
     }
 
-    _renderTd(rowIndex, colIndex, column, rowData, hasContextMenu, contextMenus) {
+    _renderTd(rowIndex, colIndex, column, rowData, hasContextMenu, contextMenus, align) {
         let that = this;
+        let classText = "";
+
+        if (column.align)
+            classText = " text-" + column.align;
+
         return (
-            <td key={'row_' + rowIndex + '_col_' + colIndex + '_key_' + column.key}>
+            <td key={'row_' + rowIndex + '_col_' + colIndex + '_key_' + column.key} className={classText}>
                 {
                     hasContextMenu
                         ?
@@ -660,7 +708,7 @@ class DataTable extends Component {
                         }
                     </Form>
                     :
-                    <span>&nbsp;</span>;
+                    record[column.key]
             case 'input':
                 return <Input
                     ref={this.rowInputRef}
@@ -714,6 +762,34 @@ class DataTable extends Component {
                     return <div
                         dangerouslySetInnerHTML={{__html: record[column.key]}}></div>
                 }
+            case 'math':
+                return <div onClick={() => {
+                    this.props.tdClick(column.key, record.id)
+                }}><MathJax math={record[column.key]}/></div>;
+            case 'numericedit':
+                return <Input
+                    ref={this.rowInputRef}
+                    value={record.takenScore !== null ? record.takenScore : ''}
+                    type="number"
+                    style={{width: 95}}
+                    className={record.numericEditClassName}
+                    onChange={(e) => {
+                        this.props.numberInputOnChange(e, record.id)
+                    }}
+                    onBlur={(event) => {
+                        this.props.numberInputFocusOut(event, rowIndex, record.id)
+                    }}
+                    onKeyDown={(event) => {
+                        var code = event.keyCode || event.which;
+                        if (code === 13) {
+                            this.props.onInputEnterPress(event, rowIndex, record.id, this.inputRefs)
+                        } else if (code === 38 || code === 40) {
+                            this.props.onInputUpDownPress(event, rowIndex, record.id, this.inputRefs)
+                            event.preventDefault();
+                        }
+
+                    }}
+                />
             default:
                 if (column.clickableTd && record.clickable) {
                     return <span
@@ -784,15 +860,38 @@ class DataTable extends Component {
             for (let column of this.state.filterColumns) {
                 if (!column.hide) {
                     if (column.key in record) {
-
-                        if (column.type && column.type === 'number') {
-                            recordCol[column.text] = this.props.staticFirstRow && colIndex === 1 ? rowIndex : parseInt(record[column.key].replace(/(\d+),(?=\d{3}(\D|$))/g, "$1"));
+                        if (column.colType && column.colType === 'number') {
+                            if (typeof (record[column.key]) === 'string' && record[column.key].includes("'")) {
+                                recordCol[column.text] = parseInt(numberReverseFormat(record[column.key], "'", ''));
+                                colIndex++;
+                            }
+                            else if (typeof (record[column.key]) === 'string' && record[column.key].includes(',')) {
+                                recordCol[column.text] = parseInt(numberReverseFormat(record[column.key], ',', ''));
+                                colIndex++;
+                            }
+                            else {
+                                recordCol[column.text] = this.props.staticFirstRow && colIndex === 1 ? rowIndex : record[column.key];
+                                colIndex++;
+                            }
+                        }
+                        else if (column.colType && column.colType === 'html') {
+                            if (record[column.key].props && record[column.key].props.data) {
+                                let cellText = record[column.key].props && record[column.key].props.data || '';
+                                recordCol[column.text] = this.props.staticFirstRow && colIndex === 1 ? rowIndex : cellText;
+                            } else {
+                                let cellText = $(record[column.key]).text();
+                                recordCol[column.text] = this.props.staticFirstRow && colIndex === 1 ? rowIndex : cellText;
+                            }
                             colIndex++;
-                        } else if (column.type && column.type === 'html') {
-                            let cellText = record[column.key].props && record[column.key].props.data || '';
-                            recordCol[column.text] = this.props.staticFirstRow && colIndex === 1 ? rowIndex : cellText;
+                        }
+                        else if (column.colType && column.colType === 'qpay') {
+                            recordCol[column.text] = this.props.staticFirstRow && colIndex === 1 ? rowIndex : record[column.key].toString();
                             colIndex++;
-                        } else {
+                        }
+                        else if (column.colType && column.colType === 'date_label') {
+                            recordCol[column.text] = this.props.staticFirstRow && colIndex === 1 ? rowIndex : (record[column.key].props && record[column.key].props.data ? record[column.key].props.data : '');
+                        }
+                        else {
                             recordCol[column.text] = this.props.staticFirstRow && colIndex === 1 ? rowIndex : record[column.key];
                             colIndex++;
                         }
