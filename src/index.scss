@@ -673,3 +673,26 @@ ul.seasonGrade-list-group {
 .scheduleTableCell {
   vertical-align: middle !important;
 }
+
+.attendanceTableBtn {
+  &.sick {
+    background-color: rgb(113, 106, 202);
+  }
+  &.came {
+    background-color: rgba(62, 191, 163, 0.8);
+  }
+  &.unexcused {
+    background-color: rgb(244, 81, 107);
+  }
+  &.excused {
+    background-color: rgb(249, 184, 34);
+  }
+  &.late {
+    background-color: rgb(87, 89, 98);
+  }
+  &.unrecorded {
+    background-color: rgb(150, 75, 0);
+  }
+
+  color:white;
+}

@@ -38,7 +38,7 @@ export default function BasePage(props) {
           </Switch>
         </Layout>
       </Suspense>
-      <ContentRoute path="/attendance/:id" component={AttendanceReport} />
+      <ContentRoute path="/attendance/:id/:studentId/:seasonId" component={AttendanceReport} />
       <ContentRoute path="/homework/:id" component={HomeworkReport} />
     </>
   );

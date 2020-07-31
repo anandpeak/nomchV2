@@ -584,7 +584,6 @@ class AttendanceSeasons extends React.Component {
       show_info: true,
       show_pagination: true,
       dynamic: true,
-      excelFileName: 'Excel',
     };
 
     this.columns = [
@@ -598,7 +597,7 @@ class AttendanceSeasons extends React.Component {
       {
         key: "lesson",
         text: "Хичээл",
-        width: 200,
+        width: 250,
         align: "left",
         sortable: false,
         clickableTd: true,
@@ -656,7 +655,8 @@ class AttendanceSeasons extends React.Component {
 
     this.state = {
       tabValue: 0,
-      recordToShow: []
+      recordToShow: [],
+      tableToProps: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -675,7 +675,7 @@ class AttendanceSeasons extends React.Component {
   // 4: {id: 2, color: "ff6c00", name: "Excused ", total: 0}
 
   componentWillReceiveProps(nextProps) {
-    console.log('nextProps = ', nextProps)
+    // console.log('nextProps = ', nextProps)
     if (nextProps.attendanceInitData.data) {
       let tmpList = [];
 
@@ -689,6 +689,7 @@ class AttendanceSeasons extends React.Component {
         subject.types.forEach((type, index) => {
           total += type.total
         })
+
         tmpObj.Came = subject.types[0].total;
         tmpObj.Unexcused = subject.types[1].total;
         tmpObj.Late = subject.types[2].total;
@@ -703,7 +704,10 @@ class AttendanceSeasons extends React.Component {
 
       this.setState({ recordToShow: tmpList });
 
-      console.log('List = ', tmpList);
+      if (!this.state.tableToProps) {
+        this.props.attendanceDatatable(tmpList);
+        this.setState({ tableToProps: true })
+      }
     }
   }
 
@@ -719,6 +723,10 @@ class AttendanceSeasons extends React.Component {
     // <Link target="_blank" to={`/attendance/${'lesson'}`}>
 
     // </Link>
+
+    window.open(`/attendance/${id}/${columnKey}/${79}`)
+
+    console.log('col = ', columnKey, 'id = ', id)
   }
 
   renderTabs() {
@@ -729,10 +737,10 @@ class AttendanceSeasons extends React.Component {
   }
 
   render() {
+
     const lessons = ["Монгол хэл", "Математик", "Түүх"];
-    console.log('renderProps = ', this.props)
-    console.log('renderProps = ', this.state.recordToShow)
-    
+    console.log('renderState = ', this.state);
+
     return (
       <div className="row">
         <div className="col-lg-12">
@@ -748,12 +756,8 @@ class AttendanceSeasons extends React.Component {
               </Tabs>
             </div>
             <div className="card-body">
-
-              {
-                console.log('>> ', this.state.recordToShow)
-              }
               <DataTable config={this.config}
-                records={this.state.recordToShow}
+                records={this.props.attendanceDataTable}
                 columns={this.columns}
                 tdClick={this._onTdClick}
               />
@@ -766,8 +770,9 @@ class AttendanceSeasons extends React.Component {
 }
 
 const mapStateProps = (state) => {
-  console.log('Att:', state)
+  // console.log('Att:', state)
   return {
+    attendanceDataTable: state.attendanceTable.attendanceDatatable.tableData,
     attendanceInitData: state.attendanceInitData.initAttendanceData
   }
 };

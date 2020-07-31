@@ -545,7 +545,7 @@ class DataTable extends Component {
                                         <li className={(isFirst ? "disabled " : "") + "page-item"}>
                                             <a href='#' className="page-link" tabIndex="-1"
                                                onClick={this.firstPage.bind(this)}>
-                                                <i className="la la-angle-double-left"></i>
+                                                <i className="fa fa-angle-double-left"></i>
                                                 {/*{this.config.language.pagination.first}*/}
                                             </a>
                                         </li>
@@ -553,7 +553,7 @@ class DataTable extends Component {
                                     <li className={(isFirst ? "disabled " : "") + "page-item"}>
                                         <a href='#' className="page-link" tabIndex="-1"
                                            onClick={this.previousPage.bind(this)}>
-                                            <i className="la la-angle-left"></i>
+                                            <i className="fa fa-angle-left"></i>
                                             {/*{this.config.language.pagination.previous}*/}
                                         </a>
                                     </li>
@@ -563,7 +563,7 @@ class DataTable extends Component {
                                     <li className={(isLast ? "disabled " : "") + "page-item"}>
                                         <a href='#' className="page-link"
                                            onClick={this.nextPage.bind(this)}>
-                                            <i className="la la-angle-right"></i>
+                                            <i className="fa fa-angle-right"></i>
                                             {/*{this.config.language.pagination.next}*/}
                                         </a>
                                     </li>
@@ -571,7 +571,7 @@ class DataTable extends Component {
                                         <li className={(isLast ? "disabled " : "") + "page-item"}>
                                             <a href='#' className="page-link" tabIndex="-1"
                                                onClick={this.lastPage.bind(this)}>
-                                                <i className="la la-angle-double-right"></i>
+                                                <i className="fa fa-angle-double-right"></i>
                                                 {/*{this.config.language.pagination.last}*/}
                                             </a>
                                         </li>

@@ -4,7 +4,8 @@ import { put, takeLatest } from "redux-saga/effects";
 // import { getUserByToken } from "./authCrud";
 
 export const actionTypes = {
-    initAttendance: "INIT_ATTENDACE"
+    initAttendance: "INIT_ATTENDACE",
+    attendanceDatatable: "ATTENDANCE_DATATABLE"
 };
 
 
@@ -21,10 +22,23 @@ export const initAttendanceReducer = persistReducer(
     }
 );
 
+export const attendanceDatatableReducer = persistReducer(
+    { storage, key: "attendanceDatatable", whitelist: ["attendanceDatatable"] },
+    (state = { attendanceDatatable: {} }, action) => {
+        switch (action.type) {
+            case actionTypes.attendanceDatatable: {
+                return { attendanceDatatable: action.payload };
+            }
+            default:
+                return state;
+        }
+    }
+);
+
 
 export const actions = {
     initAttendance: initData => ({ type: actionTypes.initAttendance, payload: { initData } }),
-
+    attendanceDatatable: tableData => ({ type: actionTypes.attendanceDatatable, payload: { tableData } })
 };
 
 

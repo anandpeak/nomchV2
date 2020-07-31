@@ -9,7 +9,8 @@ export const rootReducer = combineReducers({
   auth: auth.reducer,
   student: auth.studentReducer,
   initData: auth.initDataReducer,
-  attendanceInitData: attendance.initAttendanceReducer
+  attendanceInitData: attendance.initAttendanceReducer,
+  attendanceTable: attendance.attendanceDatatableReducer
 
 });
 

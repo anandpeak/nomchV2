@@ -4,7 +4,7 @@ import ApexCharts from "apexcharts";
 import { useHtmlClassService } from "../../../_metronic/layout";
 import { KTUtil } from "../../../_metronic/_assets/js/components/util";
 
-export function AttendanceReportChart({ className }) {
+export function AttendanceReportChart({ className, came, sick, total, excused, unexcused, late }) {
   const uiService = useHtmlClassService();
 
   const layoutProps = useMemo(() => {
@@ -35,8 +35,10 @@ export function AttendanceReportChart({ className }) {
       return;
     }
 
+    console.log(' chartData ', came, excused, unexcused, late, sick)
+
     const height = parseInt(KTUtil.css(element, "height"));
-    const options = getChartOptions(layoutProps, height);
+    const options = getChartOptions(layoutProps, height, came, excused, unexcused, late, sick);
 
     var chart = new ApexCharts(element, options);
     chart.render();
@@ -44,7 +46,7 @@ export function AttendanceReportChart({ className }) {
     return function cleanUp() {
       chart.destroy();
     };
-  }, [layoutProps]);
+  }, [layoutProps, came, excused, unexcused, late, sick]);
 
   return (
     <>
@@ -58,19 +60,20 @@ export function AttendanceReportChart({ className }) {
   );
 }
 
-function getChartOptions(layoutProps, height) {
-  console.log(layoutProps.colorsThemeBaseSuccess);
+function getChartOptions(layoutProps, height, came, excused, unexcused, late, sick) {
+  // console.log(' chartData ', came, excused, unexcused, late, sick)
   const options = {
     series: [
       {
-        data: [70, 10, 10, 5, 5],
+        name: '',
+        data: [came, excused, unexcused, late, sick],
       },
     ],
     chart: {
       height: 200,
       type: "bar",
       events: {
-        click: function(chart, w, e) {
+        click: function (chart, w, e) {
           // console.log(chart, w, e)
         },
       },
