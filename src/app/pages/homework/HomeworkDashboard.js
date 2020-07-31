@@ -5,6 +5,9 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
 import { Link } from 'react-router-dom';
+import * as action from '../../actions/homeworkActions';
+import DataTable from '../../../_metronic/_partials/widgets/util/table/DataTable'
+
 
 
 const tmpHWData = {
@@ -569,11 +572,91 @@ class HomeworkDashboard extends React.Component {
   constructor(props) {
     super(props);
 
+    this.columns = [
+      {
+        key: "id",
+        text: "№",
+        align: "left",
+        width: 50,
+      },
+      {
+        key: "subject",
+        text: "Хичээл",
+        width: 250,
+        align: "left",
+        sortable: true,
+        clickableTd: true,
+        tdClassName: "underline",
+      },
+      {
+        key: "teacher",
+        text: "Багш",
+        width: 200,
+        align: "left",
+        sortable: true,
+      },
+      {
+        key: "total",
+        text: "Нийт",
+        align: "center",
+        sortable: true,
+      },
+      {
+        key: "unchecked",
+        text: "Шалгаагүй",
+        align: "center",
+        sortable: true,
+      },
+      {
+        key: "completed",
+        text: "Бүрэн",
+        align: "center",
+        sortable: true,
+      },
+      {
+        key: "unfinished",
+        text: "Дутуу",
+        align: "center",
+        sortable: true,
+      },
+
+      {
+        key: "unmade",
+        text: "Хийгээгүй",
+        align: "center",
+        sortable: true,
+      },
+    ];
+
     this.state = {
       tabValue: 0,
+      recordToShow: []
     };
 
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    console.log('homeworkProps = ', tmpHWData.data.subjects)
+
+    let tmpArr = [];
+
+    tmpHWData.data.subjects.forEach(subject => {
+      let tmpObj = {};
+      tmpObj.id = subject.subjectId;
+      tmpObj.subject = subject.subjectName;
+      tmpObj.unckecked = subject.notCheckedCount;
+      tmpObj.completed = subject.counter[0].count;
+      tmpObj.unfinished = subject.counter[1].count;
+      tmpObj.unmade = subject.counter[2].count;
+      tmpObj.total = subject.counter[0].count + subject.counter[1].count + subject.counter[0].count;
+      tmpObj.clickable = true;
+
+      tmpArr.push(tmpObj);
+    })
+
+    this.setState({ recordToShow: tmpArr })
+    // this.props.homeworkDatatable(tmpHWData);
   }
 
   handleChange(event, newValue) {
@@ -592,7 +675,7 @@ class HomeworkDashboard extends React.Component {
     //   <span>{lesson}</span>
     // </Link>
 
-    window.open(`/attendance/${id}/${columnKey}/${79}`)
+    window.open(`/homework/${id}/${columnKey}/${79}`)
 
     console.log('col = ', columnKey, 'id = ', id)
   }
@@ -615,13 +698,11 @@ class HomeworkDashboard extends React.Component {
               </Tabs>
             </div>
             <div className="card-body">
-              {lessons.map((lesson) => (
-                <div>
-                  <Link target="_blank" to={`/homework/${lesson}`}>
-                    <span>{lesson}</span>
-                  </Link>
-                </div>
-              ))}
+              <DataTable config={this.config}
+                records={this.state.recordToShow}
+                columns={this.columns}
+                tdClick={this._onTdClick}
+              />
             </div>
           </div>
         </div>
@@ -630,10 +711,12 @@ class HomeworkDashboard extends React.Component {
   }
 }
 
-const mapStateProps = (state) => {
-  return {
 
+const mapStateProps = (state) => {
+  console.log('Att:', state)
+  return {
+    datatable: state.homeworkTable
   }
 };
 
-export default connect(mapStateProps)(HomeworkDashboard);
+export default connect(mapStateProps, action.actions)(HomeworkDashboard);

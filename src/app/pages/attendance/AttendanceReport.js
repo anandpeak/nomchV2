@@ -1229,15 +1229,13 @@ export default class AttendanceReport extends React.Component {
   // 3: {date: "2020-06-29", typeId: null, typeColor: null, typeName: null}
   // 4: {date: "2020-06-26", typeId: null, typeColor: null, typeName: null}
   componentDidMount() {
-    console.log(this.props.match.params.id);
 
     this.setState({ lessName: this.props.match.params.id });
 
-    console.log('data = ', tmpAttendanceReportData);
 
     let tmpArr = [];
     let total = 0, excused = 0, unexcused = 0, late = 0, came = 0, sick = 0;
-    console.log('sda',tmpAttendanceReportData);
+
     tmpAttendanceReportData.data.days.forEach(day => {
       let tmpObj = {};
 

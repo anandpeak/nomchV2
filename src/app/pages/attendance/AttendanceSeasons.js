@@ -613,11 +613,8 @@ class AttendanceSeasons extends React.Component {
       {
         key: "total",
         text: "Нийт",
-        align: "left",
+        align: "center",
         sortable: false,
-        colType: 'math',
-        tdClassName: 'underline',
-        clickableTd: true,
       },
       {
         key: "Came",
@@ -657,6 +654,7 @@ class AttendanceSeasons extends React.Component {
       tabValue: 0,
       recordToShow: [],
       tableToProps: false,
+      studentId: this.props.studentId
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -675,7 +673,10 @@ class AttendanceSeasons extends React.Component {
   // 4: {id: 2, color: "ff6c00", name: "Excused ", total: 0}
 
   componentWillReceiveProps(nextProps) {
-    // console.log('nextProps = ', nextProps)
+    if(this.state.studentId !== nextProps.studentId){
+      console.log('student changed');
+    }
+
     if (nextProps.attendanceInitData.data) {
       let tmpList = [];
 
@@ -712,6 +713,9 @@ class AttendanceSeasons extends React.Component {
   }
 
   componentDidMount() {
+    console.log('attendanceProps', this.props)
+    console.log('state = ', this.state.tableToProps);
+
     this.props.initAttendance(tempData);
   }
 
@@ -726,7 +730,6 @@ class AttendanceSeasons extends React.Component {
 
     window.open(`/attendance/${id}/${columnKey}/${79}`)
 
-    console.log('col = ', columnKey, 'id = ', id)
   }
 
   renderTabs() {
@@ -739,7 +742,6 @@ class AttendanceSeasons extends React.Component {
   render() {
 
     const lessons = ["Монгол хэл", "Математик", "Түүх"];
-    console.log('renderState = ', this.state);
 
     return (
       <div className="row">
@@ -770,10 +772,11 @@ class AttendanceSeasons extends React.Component {
 }
 
 const mapStateProps = (state) => {
-  // console.log('Att:', state)
+  console.log('AttAtte:', state)
   return {
     attendanceDataTable: state.attendanceTable.attendanceDatatable.tableData,
-    attendanceInitData: state.attendanceInitData.initAttendanceData
+    attendanceInitData: state.attendanceInitData.initAttendanceData,
+    studentId: state.student.student
   }
 };
 
