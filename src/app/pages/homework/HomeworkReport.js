@@ -1,5 +1,8 @@
 import React from "react";
 
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+
 import { HomeworkMixedWidget } from "./HomeworkMixedWidget.js";
 import { HomeworkReportChart } from "./HomeworkReportChart.js";
 import DataTable from '../../../_metronic/_partials/widgets/util/table/DataTable'
@@ -258,21 +261,25 @@ export default class HomeworkReport extends React.Component {
         align: "center",
         sortable: true,
       },
-
     ];
-
 
     this.state = {
       lessName: "",
+      tabValue: "Бүгд",
       recordsToShow: [],
-      completed: 0, unfinished: 0, unmade: 0, unchecked: 0, willDo: 0, total: 0
+      records: [],
+      completed: 0,
+      unfinished: 0,
+      unmade: 0,
+      unchecked: 0,
+      willDo: 0,
+      total: 0
     };
   }
 
   componentDidMount() {
 
     let tmpArr = [], completed = 0, unfinished = 0, unmade = 0, unchecked = 0, willDo = 0, total = 0;
-    console.log('tmpHWReportData.data.homeworks = ', tmpHWReportData.data.homeworks)
 
     tmpHWReportData.data.homeworks.forEach(homework => {
       let tmpObj = {}
@@ -299,23 +306,38 @@ export default class HomeworkReport extends React.Component {
         willDo++;
       }
 
-
-
+      tmpObj.typeName = homework.typeName;
       tmpObj.totalScore = homework.totalScore;
       tmpObj.takenScore = homework.takenScore;
       // tmpObj.description = homework.description;
       tmpArr.push(tmpObj);
     })
 
-
     this.setState({
-      lessName: this.props.match.params.id, recordsToShow: tmpArr, completed, unfinished, unmade, unchecked,
+      lessName: this.props.match.params.id, recordsToShow: tmpArr, records: tmpArr, completed, unfinished, unmade, unchecked,
       willDo, total: completed + unfinished + unmade + unchecked + willDo,
     });
   }
 
+  renderTabs() {
+    const rows = ["Бүгд", "Хийх", "Бүрэн", "Дутуу", "Хийгээгүй", "Шалгаагүй"];
+    let tabRows = rows.map((row) => <Tab value={row} label={<span>{row}</span>} />);
+
+    return tabRows;
+  }
+
+  handleChange = (event, newValue) => {
+    if (newValue === "Бүгд") {
+      this.setState({ tabValue: newValue, recordsToShow: this.state.records });
+    } else {
+      let tmpRecords = this.state.records.filter(rec => rec.typeName === newValue)
+
+      this.setState({ tabValue: newValue, recordsToShow: tmpRecords });
+    }
+
+  }
+
   render() {
-    console.log('tmpObj = ', this.state);
 
     return (
       <div className="fullScreenMode">
@@ -431,12 +453,30 @@ export default class HomeworkReport extends React.Component {
                 </div>
               </div>
               <div className="row mt-5 shadow-sm">
-                <div className="col-lg-8  p-5">
-                  <DataTable config={this.config}
-                    records={this.state.recordsToShow}
-                    columns={this.columns}
-                    tdClick={this._onTdClick}
-                  />
+                <div className="col-lg-12">
+                  <div className="row">
+                    <div className="col-lg-12">
+                      {/* <div className="custom-card-body"> */}
+                      <Tabs
+                        value={this.state.tabValue}
+                        onChange={this.handleChange}
+                        indicatorColor="secondary"
+                        textColor="secondary"
+                      >
+                        {this.renderTabs()}
+                      </Tabs>
+                    </div>
+                    {/* </div> */}
+                  </div>
+                  <div className="row">
+                    <div className="col-lg-8  p-5">
+                      <DataTable config={this.config}
+                        records={this.state.recordsToShow}
+                        columns={this.columns}
+                        tdClick={this._onTdClick}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
