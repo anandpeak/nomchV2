@@ -694,5 +694,18 @@ ul.seasonGrade-list-group {
     background-color: rgb(150, 75, 0);
   }
 
-  color:white;
+  color: white;
+}
+
+.examModelTxtToRight {
+  display: flex;
+  justify-content: flex-end;
+  span {
+    color: rgb(29, 83, 131);
+  }
+}
+
+.examModelTxtToLeft {
+  display: flex;
+  justify-content: flex-start;
 }

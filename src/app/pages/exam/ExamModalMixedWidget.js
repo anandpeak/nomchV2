@@ -48,7 +48,7 @@ export function ExamModalMixedWidget({ className }) {
   return (
     <>
       <div className="flex-grow-1">
-        <div id="kt_mixed_widget_14_chart" style={{ height: "160px" }}></div>
+        <div id="kt_mixed_widget_14_chart" style={{ height: "120px" }}></div>
       </div>
       <div className="pt-3">
         <p className="text-center font-weight-normal font-size-lg pb-7">

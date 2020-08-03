@@ -4,7 +4,7 @@ import ApexCharts from "apexcharts";
 import { useHtmlClassService } from "../../../_metronic/layout";
 import { KTUtil } from "../../../_metronic/_assets/js/components/util";
 
-export default function SeasonGradeMixedChart() {
+export default function SeasonGradeMixedChart({ groupAvg, selfAvg, lessList }) {
   const uiService = useHtmlClassService();
 
   const layoutProps = useMemo(() => {
@@ -38,7 +38,7 @@ export default function SeasonGradeMixedChart() {
     }
 
     const height = parseInt(KTUtil.css(element, "height"));
-    const options = getChartOptions(layoutProps, height);
+    const options = getChartOptions(groupAvg, selfAvg, lessList);
 
     var chart = new ApexCharts(element, options);
     chart.render();
@@ -46,7 +46,7 @@ export default function SeasonGradeMixedChart() {
     return function cleanUp() {
       chart.destroy();
     };
-  }, [layoutProps]);
+  }, [layoutProps, groupAvg, selfAvg, lessList]);
 
   return (
     <>
@@ -60,18 +60,18 @@ export default function SeasonGradeMixedChart() {
   );
 }
 
-function getChartOptions(layoutProps, height) {
+function getChartOptions(groupAvg, selfAvg, lessList) {
   const options = {
     series: [
       {
         name: "Өөрийн дундаж",
         type: "column",
-        data: [440, 505, 414, 671, 227, 413, 201, 352, 752, 320, 257, 160],
+        data: selfAvg,
       },
       {
         name: "Ангийн дундаж дүн",
         type: "line",
-        data: [23, 42, 35, 27, 43, 22, 17, 31, 22, 22, 12, 16],
+        data: groupAvg,
       },
     ],
     chart: {
@@ -103,33 +103,20 @@ function getChartOptions(layoutProps, height) {
       enabled: true,
       enabledOnSeries: [1],
     },
-    labels: [
-      "01 Jan 2001",
-      "02 Jan 2001",
-      "03 Jan 2001",
-      "04 Jan 2001",
-      "05 Jan 2001",
-      "06 Jan 2001",
-      "07 Jan 2001",
-      "08 Jan 2001",
-      "09 Jan 2001",
-      "10 Jan 2001",
-      "11 Jan 2001",
-      "12 Jan 2001",
-    ],
+    labels: lessList,
     xaxis: {
-      type: "datetime",
+      type: "text",
     },
     yaxis: [
       {
         title: {
-          text: "Оноо",
+          text: "Өөрийн дундаж",
         },
       },
       {
         opposite: true,
         title: {
-          text: "Ахиц",
+          text: "Ангийн дундаж",
         },
       },
     ],

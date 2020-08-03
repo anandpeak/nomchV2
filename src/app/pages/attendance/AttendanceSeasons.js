@@ -651,7 +651,7 @@ class AttendanceSeasons extends React.Component {
     ];
 
     this.state = {
-      tabValue: 0,
+      tabValue: "1-р улирал",
       recordToShow: [],
       tableToProps: false,
       studentId: this.props.studentId
@@ -660,20 +660,8 @@ class AttendanceSeasons extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  // groupId: 421
-  // groupName: "Монгол хэл | 2Б"
-  // ordering: 3
-  // teacherImage: "https://www.nomch.mn/media/cache/medium_photo/uploads/images/525cb4c0e0c4e5bab240917a595ff05d10c9e30c.png"
-  // teacherName: "Оч"
-  // types: Array(5)
-  // 0: {id: 1, color: "7ed321", name: "Came", total: 0}
-  // 1: {id: 3, color: "fa0101", name: "Unexcused", total: 0}
-  // 2: {id: 5, color: "9b9b9b", name: "Late", total: 0}
-  // 3: {id: 4, color: "9012fe", name: "Sick", total: 0}
-  // 4: {id: 2, color: "ff6c00", name: "Excused ", total: 0}
-
   componentWillReceiveProps(nextProps) {
-    if(this.state.studentId !== nextProps.studentId){
+    if (this.state.studentId !== nextProps.studentId) {
       console.log('student changed');
     }
 
@@ -713,28 +701,26 @@ class AttendanceSeasons extends React.Component {
   }
 
   componentDidMount() {
-    console.log('attendanceProps', this.props)
-    console.log('state = ', this.state.tableToProps);
 
     this.props.initAttendance(tempData);
   }
 
   handleChange(event, newValue) {
+    console.log('event = ', event, 'newVal = ', newValue);
     this.setState({ tabValue: newValue });
   }
 
   _onTdClick = (columnKey, id) => {
-    // <Link target="_blank" to={`/attendance/${'lesson'}`}>
 
-    // </Link>
 
     window.open(`/attendance/${id}/${columnKey}/${79}`)
 
   }
 
+
   renderTabs() {
     const rows = ["1-р улирал", "2-р улирал"];
-    let tabRows = rows.map((row) => <Tab label={<span>{row}</span>} />);
+    let tabRows = rows.map((row) => <Tab value={`${row}`} label={<span>{row}</span>} />);
 
     return tabRows;
   }
