@@ -1217,17 +1217,6 @@ export default class AttendanceReport extends React.Component {
     };
   }
 
-  //   [0 … 99]
-  // 0:
-  // date: "2020-07-02"
-  // typeColor: null
-  // typeId: null
-  // typeName: null
-  // __proto__: Object
-  // 1: {date: "2020-07-01", typeId: null, typeColor: null, typeName: null}
-  // 2: {date: "2020-06-30", typeId: null, typeColor: null, typeName: null}
-  // 3: {date: "2020-06-29", typeId: null, typeColor: null, typeName: null}
-  // 4: {date: "2020-06-26", typeId: null, typeColor: null, typeName: null}
   componentDidMount() {
 
     this.setState({ lessName: this.props.match.params.id });
@@ -1268,11 +1257,7 @@ export default class AttendanceReport extends React.Component {
 
     total = excused + unexcused + sick + late + came;
 
-    this.setState({ total, excused, unexcused, late, came, sick })
-
-
-    console.log(tmpArr);
-    this.setState({ recordsToShow: tmpArr })
+    this.setState({ total, excused, unexcused, late, came, sick, recordsToShow: tmpArr })
   }
 
   render() {
@@ -1309,7 +1294,7 @@ export default class AttendanceReport extends React.Component {
                         >
                           <div className="attendanceReportTableCellLeftSide">
                             <span>Ирсэн</span>
-                            <span>67%</span>
+                            <span>{`${parseInt(came * 100 / total)}%`}</span>
                           </div>
                           <div className="attendanceReportTableCellRighSide">
                             <span>{came}</span>
@@ -1323,7 +1308,7 @@ export default class AttendanceReport extends React.Component {
                         >
                           <div className="attendanceReportTableCellLeftSide">
                             <span>Тасалсан</span>
-                            <span>67%</span>
+                            <span>{`${parseInt(unexcused * 100 / total)}%`}</span>
                           </div>
                           <div className="attendanceReportTableCellRighSide">
                             <span>{unexcused}</span>
@@ -1339,7 +1324,7 @@ export default class AttendanceReport extends React.Component {
                         >
                           <div className="attendanceReportTableCellLeftSide">
                             <span>Өвчтэй</span>
-                            <span>67%</span>
+                            <span>{`${parseInt(sick * 100 / total)}%`}</span>
                           </div>
                           <div className="attendanceReportTableCellRighSide">
                             <span>{sick}</span>
@@ -1353,7 +1338,7 @@ export default class AttendanceReport extends React.Component {
                         >
                           <div className="attendanceReportTableCellLeftSide">
                             <span>Чөлөөтэй</span>
-                            <span>67%</span>
+                            <span>{`${parseInt(excused * 100 / total)}%`}</span>
                           </div>
                           <div className="attendanceReportTableCellRighSide">
                             <span>{excused}</span>
@@ -1369,7 +1354,7 @@ export default class AttendanceReport extends React.Component {
                         >
                           <div className="attendanceReportTableCellLeftSide">
                             <span>Хоцорсон</span>
-                            <span>67%</span>
+                            <span>{`${parseInt(late * 100 / total)}%`}</span>
                           </div>
                           <div className="attendanceReportTableCellRighSide">
                             <span>{late}</span>

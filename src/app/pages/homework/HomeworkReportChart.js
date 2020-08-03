@@ -4,7 +4,7 @@ import ApexCharts from "apexcharts";
 import { useHtmlClassService } from "../../../_metronic/layout";
 import { KTUtil } from "../../../_metronic/_assets/js/components/util";
 
-export function HomeworkReportChart({ className }) {
+export function HomeworkReportChart({ completed, unfinished, unmade, unchecked, willDo }) {
   const uiService = useHtmlClassService();
 
   const layoutProps = useMemo(() => {
@@ -36,7 +36,7 @@ export function HomeworkReportChart({ className }) {
     }
 
     const height = parseInt(KTUtil.css(element, "height"));
-    const options = getChartOptions(layoutProps, height);
+    const options = getChartOptions(completed, unfinished, unmade, unchecked, willDo);
 
     var chart = new ApexCharts(element, options);
     chart.render();
@@ -44,7 +44,7 @@ export function HomeworkReportChart({ className }) {
     return function cleanUp() {
       chart.destroy();
     };
-  }, [layoutProps]);
+  }, [layoutProps, completed, unfinished, unmade, unchecked, willDo]);
 
   return (
     <>
@@ -58,19 +58,18 @@ export function HomeworkReportChart({ className }) {
   );
 }
 
-function getChartOptions(layoutProps, height) {
-  console.log(layoutProps.colorsThemeBaseSuccess);
+function getChartOptions(completed, unfinished, unmade, unchecked, willDo) {
   const options = {
     series: [
       {
-        data: [70, 10, 10, 5, 5],
+        data: [willDo, completed, unfinished, unmade, unchecked],
       },
     ],
     chart: {
       height: 200,
       type: "bar",
       events: {
-        click: function(chart, w, e) {
+        click: function (chart, w, e) {
           // console.log(chart, w, e)
         },
       },

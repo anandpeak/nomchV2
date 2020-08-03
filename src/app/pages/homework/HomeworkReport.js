@@ -264,13 +264,15 @@ export default class HomeworkReport extends React.Component {
 
     this.state = {
       lessName: "",
-      recordsToShow: []
+      recordsToShow: [],
+      completed: 0, unfinished: 0, unmade: 0, unchecked: 0, willDo: 0, total: 0
     };
   }
 
   componentDidMount() {
 
-    let tmpArr = [];
+    let tmpArr = [], completed = 0, unfinished = 0, unmade = 0, unchecked = 0, willDo = 0, total = 0;
+    console.log('tmpHWReportData.data.homeworks = ', tmpHWReportData.data.homeworks)
 
     tmpHWReportData.data.homeworks.forEach(homework => {
       let tmpObj = {}
@@ -281,11 +283,20 @@ export default class HomeworkReport extends React.Component {
 
       if (homework.typeName === "Completed" || homework.typeName === "Бүрэн") {
         tmpObj['status'] = '<button type="button" class="btn btn-sm attendanceTableBtn came"><span>Бүрэн</span></button>';
+        completed++;
       }
-      else if (homework.typeName === "unfinished" || homework.typeName === "Дутуу") {
-        tmpObj['status'] = '<button type="button" class="btn btn-sm  attendanceTableBtn unexcused"><span>Дутуу</span></button>';
-      } else if (homework.typeName === "Unexcused" || homework.typeName === "Хийгээгүй") {
+      else if (homework.typeName === "Unfinished" || homework.typeName === "Дутуу") {
+        tmpObj['status'] = '<button type="button" class="btn btn-sm  attendanceTableBtn excused"><span>Дутуу</span></button>';
+        unfinished++;
+      } else if (homework.typeName === "Unmade" || homework.typeName === "Хийгээгүй") {
+        tmpObj['status'] = '<button type="button" class="btn btn-sm  attendanceTableBtn unexcused"><span>Хийгээгүй</span></button>';
+        unmade++;
+      } else if (homework.typeName === "Unchecked" || homework.typeName === "Шалгуулаагүй") {
         tmpObj['status'] = '<button type="button" class="btn btn-sm  attendanceTableBtn late"><span>Хийгээгүй</span></button>';
+        unchecked++;
+      } else {
+        tmpObj['status'] = '<button type="button" class="btn btn-sm  attendanceTableBtn late"><span>Хийгээгүй</span></button>';
+        willDo++;
       }
 
 
@@ -297,7 +308,10 @@ export default class HomeworkReport extends React.Component {
     })
 
 
-    this.setState({ lessName: this.props.match.params.id, recordsToShow: tmpArr });
+    this.setState({
+      lessName: this.props.match.params.id, recordsToShow: tmpArr, completed, unfinished, unmade, unchecked,
+      willDo, total: completed + unfinished + unmade + unchecked + willDo,
+    });
   }
 
   render() {
@@ -334,10 +348,10 @@ export default class HomeworkReport extends React.Component {
                         >
                           <div className="attendanceReportTableCellLeftSide">
                             <span>Хийх</span>
-                            <span>67%</span>
+                            <span>{`${parseInt(this.state.willDo * 100 / this.state.total)}%`}</span>
                           </div>
                           <div className="attendanceReportTableCellRighSide">
-                            <span>28</span>
+                            <span>{this.state.willDo}</span>
                           </div>
                         </div>
                       </div>
@@ -350,10 +364,10 @@ export default class HomeworkReport extends React.Component {
                         >
                           <div className="attendanceReportTableCellLeftSide">
                             <span>Бүрэн</span>
-                            <span>67%</span>
+                            <span>{`${parseInt(this.state.completed * 100 / this.state.total)}%`}</span>
                           </div>
                           <div className="attendanceReportTableCellRighSide">
-                            <span>28</span>
+                            <span>{this.state.completed}</span>
                           </div>
                         </div>
                       </div>
@@ -364,10 +378,10 @@ export default class HomeworkReport extends React.Component {
                         >
                           <div className="attendanceReportTableCellLeftSide">
                             <span>Дутуу</span>
-                            <span>67%</span>
+                            <span>{`${parseInt(this.state.unfinished * 100 / this.state.total)}%`}</span>
                           </div>
                           <div className="attendanceReportTableCellRighSide">
-                            <span>28</span>
+                            <span>{this.state.unfinished}</span>
                           </div>
                         </div>
                       </div>
@@ -380,10 +394,10 @@ export default class HomeworkReport extends React.Component {
                         >
                           <div className="attendanceReportTableCellLeftSide">
                             <span>Хийгээгүй</span>
-                            <span>67%</span>
+                            <span>{`${parseInt(this.state.unmade * 100 / this.state.total)}%`}</span>
                           </div>
                           <div className="attendanceReportTableCellRighSide">
-                            <span>28</span>
+                            <span>{this.state.unmade}</span>
                           </div>
                         </div>
                       </div>
@@ -394,10 +408,10 @@ export default class HomeworkReport extends React.Component {
                         >
                           <div className="attendanceReportTableCellLeftSide">
                             <span>Шалгуулаагүй</span>
-                            <span>67%</span>
+                            <span>{`${parseInt(this.state.unchecked * 100 / this.state.total)}%`}</span>
                           </div>
                           <div className="attendanceReportTableCellRighSide">
-                            <span>28</span>
+                            <span>{this.state.unchecked}</span>
                           </div>
                         </div>
                       </div>
@@ -406,7 +420,13 @@ export default class HomeworkReport extends React.Component {
                 </div>
                 <div className="col-sm-6 px-md-2">
                   <div className="p-5 h-100 shadow-sm">
-                    <HomeworkReportChart />
+                    <HomeworkReportChart
+                      completed={this.state.completed}
+                      unfinished={this.state.unfinished}
+                      unmade={this.state.unmade}
+                      unchecked={this.state.unchecked}
+                      willDo={this.state.willDo}
+                    />
                   </div>
                 </div>
               </div>
