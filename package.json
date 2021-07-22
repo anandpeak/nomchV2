@@ -93,7 +93,7 @@
         "sass-loader": "^8.0.2",
         "semantic-ui-react": "^0.88.2",
         "socicon": "3.0.5",
-        "xlsx": "^0.16.2",
+        "xlsx": "^0.17.0",
         "yup": "0.29.0"
     },
     "devDependencies": {
